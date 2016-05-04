@@ -1,0 +1,17 @@
+#MyEclipse Hibernate Properties
+#Wed May 04 16:59:32 CST 2016
+genVersionTag=false
+sessionFactoryName=imu.pcloud.server.HibernateSessionFactory
+genAnnotations=false
+configFile=/PCloudServer/src/hibernate.cfg.xml
+reStrategyClass=
+sessionFactoryId=
+profile=
+detectM2M=false
+genBasicCompId=false
+keyGenerator=
+createConfigFile=true
+basePersistenceClass=
+detectO2O=false
+useJavaTypes=true
+reSettingsFile=
