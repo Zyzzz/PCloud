@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#232629">
+    
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="14"
+            android:background="#e05b5b">
+        <TextView
+            	android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:text="Like point"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <fragment
+                    android:id="@+id/collect_map"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:name="com.google.android.gms.maps.MapFragment"/>
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+
+            </RelativeLayout>
+            
+        </RelativeLayout>
+    </LinearLayout>
+    
+
+</LinearLayout>

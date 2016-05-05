@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#232629">
+    
+    
+    
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+		    android:background="#e05b5b">
+        <TextView 
+          android:id="@+id/confirm_hint"
+	      android:textColor="@color/base_color_text_white"
+	      android:textSize="@dimen/text_size_large"
+	      android:gravity="center"
+	      android:text="Do you want to sale here?"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+   	         />
+        </LinearLayout>
+        
+        
+           <View
+             android:layout_width="match_parent"
+             android:layout_height="2dp"
+             android:background="@drawable/base_horization_line" />
+        
+        <TextView
+          android:id="@+id/comfirm_address"
+	      android:textSize="@dimen/text_size_large"
+	      android:textColor="@color/base_color_text_white"
+	      android:gravity="center"
+	      android:text="Here is address."
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
+        
+        <View
+             android:layout_width="match_parent"
+             android:layout_height="2dp"
+             android:background="@drawable/base_horization_line" />
+        
+    </LinearLayout>
+    
+    
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+    
+		 <Button
+	      android:id="@+id/btn_confirm_address"
+	      android:layout_width="match_parent"
+	      android:layout_height="@dimen/base_action_bar_height"
+	      android:layout_margin="@dimen/activity_vertical_margin"
+	      android:layout_weight="1"
+	      android:background="@drawable/red_bg"
+	      android:text="Confirm"
+	      android:textColor="@color/base_color_text_white"
+	      android:textSize="@dimen/text_size_large"
+	      android:gravity="center"/>
+		 
+		 <Button
+	      android:id="@+id/btn_cancel_address"
+	      android:layout_width="match_parent"
+	      android:layout_height="@dimen/base_action_bar_height"
+	      android:layout_margin="@dimen/activity_vertical_margin"
+	      android:layout_weight="1"
+	      android:background="@drawable/red_bg"
+	      android:text="Cancel"
+	      android:textColor="@color/base_color_text_white"
+	      android:textSize="@dimen/text_size_large"
+	      android:gravity="center"/>
+		</LinearLayout>
+    
+</LinearLayout>
