@@ -43,6 +43,12 @@
                 <comment>个性签名</comment>
             </column>
         </property>
+        <property name="verifyFlag" type="java.lang.Integer">
+            <column name="verifyFlag" />
+        </property>
+        <property name="secretKey" type="java.lang.String">
+            <column name="secretKey" />
+        </property>
         <set name="comments" inverse="true">
             <key>
                 <column name="userID" not-null="true" />
