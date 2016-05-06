@@ -8,10 +8,10 @@ import java.util.Date;
 public class DateTool {
 	static SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
 	static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-	static String timeToString(Time time) {
+	public static String timeToString(Time time) {
 		return timeFormat.format(time);
 	}
-	static Time stringToTime(String string) {
+	public static Time stringToTime(String string) {
 		try {
 			return (Time) timeFormat.parse(string);
 		} catch (ParseException e) {
@@ -20,10 +20,10 @@ public class DateTool {
 			return null;
 		}
 	}
-	static String dateToString(Date date) {
+	public static String dateToString(Date date) {
 		return dateFormat.format(date);
 	}
-	static Date stringToDate(String string) {
+	public static Date stringToDate(String string) {
 		try {
 			return timeFormat.parse(string);
 		} catch (ParseException e) {

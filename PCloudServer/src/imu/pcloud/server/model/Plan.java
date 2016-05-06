@@ -1,22 +1,43 @@
 package imu.pcloud.server.model;
 
-import java.sql.Time;
-import java.util.ArrayList;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 public class Plan {
-	ArrayList<String> timeStrings;
-	ArrayList<String> comtextStrings;
-	public ArrayList<String> getTimeStrings() {
-		return timeStrings;
+	String startTimeString;
+	String endTimeString;
+	String content;
+	String title;
+	public Plan() {
+		
 	}
-	public void setTimeStrings(ArrayList<String> timeStrings) {
-		this.timeStrings = timeStrings;
+	public Plan(String startTimeString, String endTimeString, String content,
+			String title) {
+		super();
+		this.startTimeString = startTimeString;
+		this.endTimeString = endTimeString;
+		this.content = content;
+		this.title = title;
 	}
-	public ArrayList<String> getComtextStrings() {
-		return comtextStrings;
+	public String getStartTimeString() {
+		return startTimeString;
 	}
-	public void setComtextStrings(ArrayList<String> comtextStrings) {
-		this.comtextStrings = comtextStrings;
+	public void setStartTimeString(String startTimeString) {
+		this.startTimeString = startTimeString;
+	}
+	public String getEndTimeString() {
+		return endTimeString;
+	}
+	public void setEndTimeString(String endTimeString) {
+		this.endTimeString = endTimeString;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }
