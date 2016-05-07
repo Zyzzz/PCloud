@@ -13,7 +13,7 @@ public class LoginAction extends ActionSupport {
 	private String password;
 	private UserModel result = new UserModel();
 	
-		public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
