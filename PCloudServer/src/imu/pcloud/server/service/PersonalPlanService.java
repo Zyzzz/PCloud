@@ -24,9 +24,15 @@ public class PersonalPlanService {
 		persnoalPlan.setUserId(userId);
 		persnoalPlan.setCoverImageId(coverImageId);
 		persnoalPlanDao.save(persnoalPlan);
+		personalPlanList.add(persnoalPlan);
+		return 0;
+	}
+	
+	public int deletePlan(String content,String name,Integer userId){
 		
 		return 0;
 	}
+	
 	public List getPlanList(Integer userId){
 		
 		personalPlanList = persnoalPlanDao.findByUserId(userId);
