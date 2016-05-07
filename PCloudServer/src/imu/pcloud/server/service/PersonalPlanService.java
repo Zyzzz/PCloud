@@ -1,41 +1,80 @@
 package imu.pcloud.server.service;
+import java.util.ArrayList;
 import java.util.List;
+
+import com.mysql.fabric.xmlrpc.base.Array;
+
 import imu.pcloud.server.DAO.PersonalPlanDAO;
 import imu.pcloud.server.been.PersonalPlan;
 
 public class PersonalPlanService {
 	
-	PersonalPlanDAO persnoalPlanDao = new PersonalPlanDAO();
-	PersonalPlan persnoalPlan = new PersonalPlan();
-	List<PersonalPlan> personalPlanList;
+	PersonalPlanDAO personalPlanDao = new PersonalPlanDAO();
+	PersonalPlan personalPlan = new PersonalPlan();
+	List<PersonalPlan> personalPlanList = new ArrayList();
 	
+	public PersonalPlan getPersonalPlan() {
+		return personalPlan;
+	}
+
+	public void setPersonalPlan(PersonalPlan personalPlan) {
+		this.personalPlan = personalPlan;
+	}
+
+	public List<PersonalPlan> getPersonalPlanList() {
+		return personalPlanList;
+	}
+
+	public void setPersonalPlanList(List<PersonalPlan> personalPlanList) {
+		this.personalPlanList = personalPlanList;
+	}
+
 	public int addPlan(String content,String name,Integer userId){
-		persnoalPlan.setContent(content); 
-		persnoalPlan.setName(name);
-		persnoalPlan.setUserId(userId);
-		persnoalPlanDao.save(persnoalPlan);
-		personalPlanList.add(persnoalPlan);
+		personalPlan.setContent(content); 
+		personalPlan.setName(name);
+		personalPlan.setUserId(userId);
+		personalPlanDao.save(personalPlan);
 		return 0;
 	}
 	
 	public int addPlanHasImage(String content,String name,Integer userId,Integer coverImageId){
-		persnoalPlan.setContent(content); 
-		persnoalPlan.setName(name);
-		persnoalPlan.setUserId(userId);
-		persnoalPlan.setCoverImageId(coverImageId);
-		persnoalPlanDao.save(persnoalPlan);
-		personalPlanList.add(persnoalPlan);
+		personalPlan.setContent(content); 
+		personalPlan.setName(name);
+		personalPlan.setUserId(userId);
+		personalPlan.setCoverImageId(coverImageId);
+		personalPlanDao.save(personalPlan);
 		return 0;
 	}
 	
-	public int deletePlan(String content,String name,Integer userId){
-		
+	public int modify(Integer id,String content,String name){
+		personalPlan = personalPlanDao.findById(id);
+		personalPlan.setContent(content);
+		personalPlan.setName(name);
+		personalPlanDao.save(personalPlan);
 		return 0;
+	}
+	
+	public int deletePlan(String content,String name,Integer userId){		
+		personalPlan.setContent(content);
+		personalPlan.setUserId(userId);
+		personalPlan.setName(name);
+		personalPlanList = personalPlanDao.findByExample(personalPlan);
+		personalPlanDao.delete(personalPlanList.get(0));
+		return 0;
+	}
+		
+	public int getPlanID(String content,String name,Integer userId){
+		personalPlan.setContent(content);
+		personalPlan.setUserId(userId);
+		personalPlan.setName(name);
+		personalPlanList = personalPlanDao.findByExample(personalPlan);
+		Integer id = personalPlanList.get(0).getId();
+	   return id;
 	}
 	
 	public List getPlanList(Integer userId){
 		
-		personalPlanList = persnoalPlanDao.findByUserId(userId);
+		personalPlanList = personalPlanDao.findByUserId(userId);
 		return personalPlanList;
 	}
 }
