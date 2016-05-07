@@ -3,7 +3,26 @@
 <struts>
 	<package name="default" namespace="/"
 		extends="struts-default, json-default">
+		
 		<action name="login" class="imu.pcloud.server.action.LoginAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		
+		<action name="relogin" class="imu.pcloud.server.action.ReLoginAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		
+		<action name="register" class="imu.pcloud.server.action.RegisterAction">
 			<result name="success" type="json">
 				<param name="root">result</param>
 				<param name="excludeNullProperties">true</param>

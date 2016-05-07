@@ -1,49 +1,52 @@
 package imu.pcloud.server.action;
 
-import imu.pcloud.server.been.User;
 import imu.pcloud.server.model.UserModel;
 import imu.pcloud.server.service.UserService;
-import imu.pcloud.server.utils.Information;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport {
+public class RegisterAction extends ActionSupport {
 
 	private String email;
+	private String username;
 	private String password;
+	private String rePassword;
 	private UserModel result = new UserModel();
-	
-		public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	public String getRePassword() {
+		return rePassword;
+	}
+	public void setRePassword(String rePassword) {
+		this.rePassword = rePassword;
+	}
 	public UserModel getResult() {
 		return result;
 	}
-
 	public void setResult(UserModel result) {
 		this.result = result;
 	}
-
-		@Override
+	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		//System.out.println("---------------------------------------------------------");
-		//System.out.println(email + "  " + password);
 		UserService userService = new UserService();
-		int status = userService.login(email, password);
+		int status = userService.register(username, email, password, rePassword);
 		if(status == 0)
 			result.setByUser(userService.getUser());
 		result.setStatus(status);
