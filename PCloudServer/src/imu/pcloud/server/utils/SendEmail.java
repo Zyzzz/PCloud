@@ -29,7 +29,7 @@ public class SendEmail {
     public static String FROM;//发件人的email
     public static String PWD;//发件人密码
     static{
-    	Information information=new Information();
+    	Information information=Information.getInstance();
     	HOST=information.getConfigInfo("mailHost");
     	PROTOCOL=information.getConfigInfo("mailProtocol");
     	PORT=Integer.parseInt(information.getConfigInfo("mailPort"));

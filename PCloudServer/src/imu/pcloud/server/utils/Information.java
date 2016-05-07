@@ -5,6 +5,15 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Information {
+	static private Information instance;
+	private Information() {
+		// TODO Auto-generated constructor stub
+	}
+	static public Information getInstance() {
+		if(instance == null)
+			instance = new Information();
+		return instance;
+	}
 	public String getErrorInfo(int errorCode) {
 		Properties properties = new Properties();
 		InputStream in = this.getClass().getResourceAsStream("/errorCode.properties");
