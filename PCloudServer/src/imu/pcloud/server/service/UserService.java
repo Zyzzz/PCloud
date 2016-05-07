@@ -1,10 +1,12 @@
 package imu.pcloud.server.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import imu.pcloud.server.DAO.UserDAO;
 import imu.pcloud.server.been.User;
+import imu.pcloud.server.utils.DateTool;
 import imu.pcloud.server.utils.MD5;
 import imu.pcloud.server.utils.RegexValidateUtil;
 
@@ -65,18 +67,18 @@ public class UserService {
 		return 0;
 	}
 	
-	public int reLogin(String cookies){
+	public int reLogin(String cookies) {
 		user = new User();
 		user.setCookies(cookies);
 		userList = userDAO.findByExample(user);
-		if(userList.isEmpty()) {
+		if(userList.isEmpty())
 			return 104;
-		}
 		user = userList.get(0);
 		return 0;
 	}
 	
 	public int logout(String cookies) {
+		//relogin
 		user = new User();
 		user.setCookies(cookies);
 		userList = userDAO.findByExample(user);
@@ -84,11 +86,47 @@ public class UserService {
 			return 104;
 		}
 		user = userList.get(0);
+		//clean cookies
 		user.setCookies("");
 		userDAO.save(user);
 		return 0;		
 	}
-	//public int reSetPassword()
 	
-	//public int 
+	public int resetPassword(String cookies, String oldPassword, String newPassword, String reNewPassword) {
+		//relogin
+		user = new User();
+		user.setCookies(cookies);
+		userList = userDAO.findByExample(user);
+		if(userList.isEmpty())
+			return 104;
+		//check password
+		else if(!oldPassword.equals(userList.get(0).getPassword()))
+			return 105;
+		else if(!newPassword.equals(reNewPassword))
+			return 106;
+		user = userList.get(0);
+		user.setPassword(newPassword);
+		userDAO.save(user);
+		return 0;
+	}
+	
+	public int setInformation(String cookies, String sex, 
+			Date birthday, String education, String working,
+			String signature) {
+		//relogin
+		user = new User();
+		user.setCookies(cookies);
+		userList = userDAO.findByExample(user);
+		if(userList.isEmpty())
+			return 104;
+		//set information
+		user = userList.get(0);
+		user.setSex(sex);
+		user.setBirthday(birthday);
+		user.setEducation(education);
+		user.setWorking(working);
+		user.setSignature(signature);
+		userDAO.save(user);
+		return 0;
+	}
 }
