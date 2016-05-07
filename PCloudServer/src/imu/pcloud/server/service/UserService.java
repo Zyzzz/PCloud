@@ -103,7 +103,7 @@ public class UserService {
 		else if(!oldPassword.equals(userList.get(0).getPassword()))
 			return 105;
 		else if(!newPassword.equals(reNewPassword))
-			return 106;
+			return 103;
 		user = userList.get(0);
 		user.setPassword(newPassword);
 		userDAO.save(user);
