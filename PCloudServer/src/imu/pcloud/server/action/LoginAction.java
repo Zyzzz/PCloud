@@ -14,7 +14,7 @@ public class LoginAction extends ActionSupport {
 	private UserModel result = new UserModel();
 	private User user;
 	
-		public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -50,7 +50,6 @@ public class LoginAction extends ActionSupport {
 		@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		
 		System.out.println("---------------------------------------------------------");
 		System.out.println(email + "  " + password);
 		UserService userService = new UserService();
