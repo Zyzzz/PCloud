@@ -111,7 +111,7 @@ public class UserService {
 	}
 	
 	public int setInformation(String cookies, String sex, 
-			Date birthday, String education, String working,
+			String birthday, String education, String working,
 			String signature) {
 		//relogin
 		user = new User();
@@ -122,7 +122,7 @@ public class UserService {
 		//set information
 		user = userList.get(0);
 		user.setSex(sex);
-		user.setBirthday(birthday);
+		user.setBirthday(DateTool.stringToDate(birthday));
 		user.setEducation(education);
 		user.setWorking(working);
 		user.setSignature(signature);

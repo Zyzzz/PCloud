@@ -12,7 +12,6 @@ public class BaseModel {
 
 	public void setResult(String result) {
 		this.result = result;
-		setResult(Information.getInstance().getErrorInfo(status));
 	}
 
 	public int getStatus() {
@@ -21,5 +20,6 @@ public class BaseModel {
 
 	public void setStatus(int status) {
 		this.status = status;
+		setResult(Information.getInstance().getErrorInfo(status));
 	}
 }

@@ -10,6 +10,7 @@
 				<param name="excludeNullProperties">true</param>
 				<param name="noCache">true</param>
 				<param name="charSet">UTF-8</param>
+				<param name="ignoreHierarchy" >false</param> 
 			</result>
 		</action>
 		
@@ -19,6 +20,7 @@
 				<param name="excludeNullProperties">true</param>
 				<param name="noCache">true</param>
 				<param name="charSet">UTF-8</param>
+				<param name="ignoreHierarchy" >false</param> 
 			</result>
 		</action>
 		
@@ -28,6 +30,27 @@
 				<param name="excludeNullProperties">true</param>
 				<param name="noCache">true</param>
 				<param name="charSet">UTF-8</param>
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
+		
+		<action name="logout" class="imu.pcloud.server.action.LogoutAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
+		
+		<action name="setInformation" class="imu.pcloud.server.action.SetInfomationAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+				<param name="ignoreHierarchy" >false</param> 
 			</result>
 		</action>
 	</package>

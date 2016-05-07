@@ -2,6 +2,7 @@ package imu.pcloud.server.model;
 
 import imu.pcloud.server.been.Image;
 import imu.pcloud.server.been.User;
+import imu.pcloud.server.utils.DateTool;
 
 import java.util.Date;
 
@@ -12,7 +13,7 @@ public class UserModel extends BaseModel{
 	private String password;
 	private String email;
 	private String sex;
-	private Date birthday;
+	private String birthday;
 	private String education;
 	private String working;
 	private String signature;
@@ -29,7 +30,7 @@ public class UserModel extends BaseModel{
 	}
 	
 	public UserModel(Integer id, String username, String password,
-			String email, String sex, Date birthday, String education,
+			String email, String sex, String birthday, String education,
 			String working, String signature, Integer verifyFlag,
 			String secretKey, String cookies) {
 		super();
@@ -53,7 +54,7 @@ public class UserModel extends BaseModel{
 		this.password = user.getPassword();
 		this.email = user.getEmail();
 		this.sex = user.getSex();
-		this.birthday = user.getBirthday();
+		this.birthday = DateTool.dateToString(user.getBirthday());
 		this.education = user.getEducation();
 		this.working = user.getWorking();
 		this.signature = user.getSecretKey();
@@ -92,10 +93,10 @@ public class UserModel extends BaseModel{
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public String getEducation() {
