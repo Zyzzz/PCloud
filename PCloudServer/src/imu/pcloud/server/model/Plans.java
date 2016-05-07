@@ -22,6 +22,9 @@ public class Plans {
 		this.plans = plans;
 	}
 	
+	public void addPlan(Plan plan){
+		plans.add(plan);
+	}
 	public String getJsonString() {
 		return gson.toJson(plans);
 	}
