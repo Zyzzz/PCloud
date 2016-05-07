@@ -17,7 +17,10 @@
 		</property>
 		<property name="dialect">
 			org.hibernate.dialect.MySQLDialect
-		</property><property name="javax.persistence.validation.mode">none</property>
+		</property>
+		<property name="javax.persistence.validation.mode">
+			none
+		</property>
 		<property name="connection.characterEncoding">utf8</property>
 		<mapping
 			resource="imu/pcloud/server/been/SharingRecord.hbm.xml" />
@@ -27,7 +30,7 @@
 		<mapping resource="imu/pcloud/server/been/Comment.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/Image.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/User.hbm.xml" />
-		
+
 	</session-factory>
 
 </hibernate-configuration>

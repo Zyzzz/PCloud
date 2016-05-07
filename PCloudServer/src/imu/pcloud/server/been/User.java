@@ -24,6 +24,7 @@ public class User implements java.io.Serializable {
 	private String signature;
 	private Integer verifyFlag;
 	private String secretKey;
+	private String cookies;
 	private Set comments = new HashSet(0);
 
 	// Constructors
@@ -42,7 +43,8 @@ public class User implements java.io.Serializable {
 	/** full constructor */
 	public User(Image image, String username, String password, String email,
 			String sex, Date birthday, String education, String working,
-			String signature, Integer verifyFlag, String secretKey, Set comments) {
+			String signature, Integer verifyFlag, String secretKey,
+			String cookies, Set comments) {
 		this.image = image;
 		this.username = username;
 		this.password = password;
@@ -54,6 +56,7 @@ public class User implements java.io.Serializable {
 		this.signature = signature;
 		this.verifyFlag = verifyFlag;
 		this.secretKey = secretKey;
+		this.cookies = cookies;
 		this.comments = comments;
 	}
 
@@ -153,6 +156,14 @@ public class User implements java.io.Serializable {
 
 	public void setSecretKey(String secretKey) {
 		this.secretKey = secretKey;
+	}
+
+	public String getCookies() {
+		return this.cookies;
+	}
+
+	public void setCookies(String cookies) {
+		this.cookies = cookies;
 	}
 
 	public Set getComments() {

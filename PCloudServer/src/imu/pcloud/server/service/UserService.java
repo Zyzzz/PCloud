@@ -5,13 +5,15 @@ import java.util.List;
 
 import imu.pcloud.server.DAO.UserDAO;
 import imu.pcloud.server.been.User;
+import imu.pcloud.server.utils.MD5;
 import imu.pcloud.server.utils.RegexValidateUtil;
 
 public class UserService {
 
 	UserDAO userDAO = new UserDAO();
-	User user = new User();
+	User user;
 	List<User> userList; 
+	MD5 md5 = new MD5();
 	
 	public User getUser() {
 		return user;
@@ -30,6 +32,7 @@ public class UserService {
 	}
 
 	public int login(String email, String password) {
+		user = new User();
 		user.setEmail(email);
 		user.setPassword(password);
 		userList = userDAO.findByExample(user);
@@ -37,10 +40,14 @@ public class UserService {
 			return 100;
 		}
 		user = userList.get(0);
+		String cookies = md5.Md5(user.getEmail() + user.getUsername() + System.currentTimeMillis()) + "@" + user.getId();
+		user.setCookies(cookies);
+		userDAO.save(user);
 		return 0;
 	}
 	
 	public int register(String username, String email, String password, String rePassword) {
+		user = new User();
 		user.setEmail(email);
 		userList = userDAO.findByExample(user);
 		if(!RegexValidateUtil.checkEmail(email)) {
@@ -57,6 +64,31 @@ public class UserService {
 		userDAO.save(user);
 		return 0;
 	}
+	
+	public int reLogin(String cookies){
+		user = new User();
+		user.setCookies(cookies);
+		userList = userDAO.findByExample(user);
+		if(userList.isEmpty()) {
+			return 104;
+		}
+		user = userList.get(0);
+		return 0;
+	}
+	
+	public int logout(String cookies) {
+		user = new User();
+		user.setCookies(cookies);
+		userList = userDAO.findByExample(user);
+		if(userList.isEmpty()) {
+			return 104;
+		}
+		user = userList.get(0);
+		user.setCookies("");
+		userDAO.save(user);
+		return 0;		
+	}
+	//public int reSetPassword()
 	
 	//public int 
 }
