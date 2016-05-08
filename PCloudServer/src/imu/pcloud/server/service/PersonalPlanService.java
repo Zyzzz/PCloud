@@ -54,12 +54,9 @@ public class PersonalPlanService {
 		return 0;
 	}
 	
-	public int deletePlan(String content,String name,Integer userId){		
-		personalPlan.setContent(content);
-		personalPlan.setUserId(userId);
-		personalPlan.setName(name);
-		personalPlanList = personalPlanDao.findByExample(personalPlan);
-		personalPlanDao.delete(personalPlanList.get(0));
+	public int deletePlan(Integer id){		
+		personalPlan = personalPlanDao.findById(id);
+		personalPlanDao.delete(personalPlan);
 		return 0;
 	}
 		
