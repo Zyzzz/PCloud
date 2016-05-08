@@ -1,5 +1,6 @@
 package imu.pcloud.server.action;
 
+import imu.pcloud.server.model.BaseModel;
 import imu.pcloud.server.service.PersonalPlanService;
 import imu.pcloud.server.service.UserService;
 
@@ -10,7 +11,7 @@ public class AddPlanAction extends ActionSupport {
 	String content;
 	String name;
 	String cookies;
-	String result;
+	BaseModel result;
 	public String getContent() {
 		return content;
 	}
@@ -29,10 +30,10 @@ public class AddPlanAction extends ActionSupport {
 	public void setCookies(String cookies) {
 		this.cookies = cookies;
 	}
-	public String getResult() {
+	public BaseModel getResult() {
 		return result;
 	}
-	public void setResult(String result) {
+	public void setResult(BaseModel result) {
 		this.result = result;
 	}
 	@Override
@@ -45,14 +46,14 @@ public class AddPlanAction extends ActionSupport {
 		if (statc==0){
 			statc =personalPlanService.addPlan(content, name, userService.getUser().getId());
 			if(statc==0){
-				result = "创建成功";
+				result.setStatus(200);
 			}
 			else {
-				result = "创建失败";
+				result.setStatus(202);
 			}
 		}
 		else {
-			result = "请重新登录";
+			result.setStatus(104);
 		}
 		return SUCCESS;
 	}

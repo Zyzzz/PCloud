@@ -1,5 +1,6 @@
 package imu.pcloud.server.action;
 
+import imu.pcloud.server.model.BaseModel;
 import imu.pcloud.server.service.PersonalPlanService;
 import imu.pcloud.server.service.UserService;
 
@@ -7,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DeletePlanAction extends ActionSupport{
 
-	String result;
+	BaseModel result;
 	Integer id;
 	
 	public Integer getId() {
@@ -22,13 +23,13 @@ public class DeletePlanAction extends ActionSupport{
 
 
 
-	public String getResult() {
+	public BaseModel getResult() {
 		return result;
 	}
 
 
 
-	public void setResult(String result) {
+	public void setResult(BaseModel result) {
 		this.result = result;
 	}
 
@@ -41,10 +42,10 @@ public class DeletePlanAction extends ActionSupport{
 		PersonalPlanService personalPlanService = new PersonalPlanService();
 		int statc = personalPlanService.deletePlan(id);
 		if (statc ==0) {
-			result = "É¾³ý³É¹¦";
+			result.setStatus(203);
 		}
 		else {
-			result = "É¾³ýÊ§°Ü";
+			result.setStatus(204);
 		}
 	
 		return SUCCESS;

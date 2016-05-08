@@ -1,5 +1,6 @@
 package imu.pcloud.server.action;
 
+import imu.pcloud.server.model.BaseModel;
 import imu.pcloud.server.service.PersonalPlanService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -9,7 +10,7 @@ public class ModifyPlanAction extends ActionSupport  {
 	Integer id;
 	String content;
 	String name;
-	String  result;
+	BaseModel  result;
 	public Integer getId() {
 		return id;
 	}
@@ -34,11 +35,11 @@ public class ModifyPlanAction extends ActionSupport  {
 		this.name = name;
 	}
 
-	public String getResult() {
+	public BaseModel getResult() {
 		return result;
 	}
 
-	public void setResult(String result) {
+	public void setResult(BaseModel result) {
 		this.result = result;
 	}
 
@@ -48,10 +49,10 @@ public class ModifyPlanAction extends ActionSupport  {
 		PersonalPlanService personalPlanService = new PersonalPlanService();
 		int statc = personalPlanService.modify(id, content, name);
 		if (statc==0){
-			result = "修改成功";
+			result.setStatus(205);
 		}
 		else{
-			result = "修改失败";
+			result.setStatus(206);
 		}
 		return SUCCESS;
 	}
