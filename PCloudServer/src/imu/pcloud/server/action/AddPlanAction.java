@@ -11,7 +11,7 @@ public class AddPlanAction extends ActionSupport {
 	String content;
 	String name;
 	String cookies;
-	BaseModel result;
+	BaseModel result = new BaseModel();
 	public String getContent() {
 		return content;
 	}

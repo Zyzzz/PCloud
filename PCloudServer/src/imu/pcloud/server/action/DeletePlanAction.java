@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DeletePlanAction extends ActionSupport{
 
-	BaseModel result;
+	BaseModel result = new BaseModel();
 	Integer id;
 	
 	public Integer getId() {

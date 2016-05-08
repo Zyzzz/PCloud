@@ -10,7 +10,7 @@ public class ModifyPlanAction extends ActionSupport  {
 	Integer id;
 	String content;
 	String name;
-	BaseModel  result;
+	BaseModel  result = new BaseModel();
 	public Integer getId() {
 		return id;
 	}
