@@ -69,6 +69,11 @@ public class PersonalPlanService {
 	   return id;
 	}
 	
+	public int getPlanInfo(Integer id){
+		personalPlan = personalPlanDao.findById(id);
+		return 0;
+	}
+	
 	public List getPlanList(Integer userId){
 		
 		personalPlanList = personalPlanDao.findByUserId(userId);
