@@ -14,11 +14,19 @@ public class SharingRecord implements java.io.Serializable {
 	private Integer loadingTime;
 	private Timestamp sharingTime;
 	private Timestamp lastUpdatingTime;
-
+    private Integer userId;
 	// Constructors
 
 	/** default constructor */
 	public SharingRecord() {
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	/** minimal constructor */

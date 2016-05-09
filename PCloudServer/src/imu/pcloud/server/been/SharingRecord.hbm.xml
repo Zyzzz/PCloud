@@ -23,5 +23,8 @@
         <property name="lastUpdatingTime" type="java.sql.Timestamp">
             <column name="lastUpdatingTime" length="19" />
         </property>
+         <property name="userId" type="java.lang.Integer">
+            <column name="userID" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>
