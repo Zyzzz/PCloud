@@ -10,7 +10,7 @@ public class RegisterAction extends ActionSupport {
 	private String email;
 	private String username;
 	private String password;
-	private String rePassword;
+	private String repassword;
 	private UserModel result = new UserModel();
 	public String getEmail() {
 		return email;
@@ -31,10 +31,10 @@ public class RegisterAction extends ActionSupport {
 		this.password = password;
 	}
 	public String getRePassword() {
-		return rePassword;
+		return repassword;
 	}
 	public void setRePassword(String rePassword) {
-		this.rePassword = rePassword;
+		this.repassword = rePassword;
 	}
 	public UserModel getResult() {
 		return result;
@@ -46,7 +46,7 @@ public class RegisterAction extends ActionSupport {
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		UserService userService = new UserService();
-		int status = userService.register(username, email, password, rePassword);
+		int status = userService.register(username, email, password, repassword);
 		if(status == 0)
 			result.setByUser(userService.getUser());
 		result.setStatus(status);
