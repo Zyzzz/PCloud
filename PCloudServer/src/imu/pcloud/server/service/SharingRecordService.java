@@ -68,22 +68,14 @@ public class SharingRecordService {
 		}
 	}
 	
-	public int deleteSharing(Integer personalPlanId,String cookies){
+	public int deleteSharing(Integer personalPlanId,Integer planCircleId){
 		
-		User user = new User();
-		user.setCookies(cookies);
-		List<User> users = userDAO.findByExample(user);
-		if(!users.isEmpty()){
 			sharingRecordId.setPersonalPlanId(personalPlanId);
-			sharingRecord.setUserId(users.get(0).getId());
-			sharingRecords = sharingRecordDAO.findByExample(sharingRecord);
-			sharingRecord = sharingRecords.get(0);
+			sharingRecordId.setPlanCircleId(planCircleId);
+			sharingRecord = sharingRecordDAO.findById(sharingRecordId);
 			sharingRecordDAO.delete(sharingRecord);
 			return 0;
-		}
-		else {
-			return 300;
-		}
+		
 	}
 	
 }
