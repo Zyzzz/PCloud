@@ -6,7 +6,7 @@ import imu.pcloud.server.service.SharingRecordService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GetUserSharingList extends ActionSupport {
+public class GetUserSharingListAction extends ActionSupport {
 	
 	SharingRecordService sharingRecordService = new SharingRecordService();
 	String cookies;
