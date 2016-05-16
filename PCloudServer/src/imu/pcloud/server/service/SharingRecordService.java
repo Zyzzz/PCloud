@@ -54,6 +54,11 @@ public class SharingRecordService {
 		}
 	}
 	
+	public int getSharingList(){
+		sharingRecords = sharingRecordDAO.findAll();
+		return 0;
+	}
+	
 	public int getUserSharingList(String cookies) {
 		User user = new User();
 		user.setCookies(cookies);
