@@ -40,8 +40,8 @@ public class LoginAction extends ActionSupport {
 		@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		//System.out.println("---------------------------------------------------------");
-		//System.out.println(email + "  " + password);
+		System.out.println("---------------------------------------------------------");
+		System.out.println(email + "  " + password);
 		UserService userService = new UserService();
 		int status = userService.login(email, password);
 		if(status == 0)

@@ -68,12 +68,15 @@ public class UserService {
 	}
 	
 	public int reLogin(String cookies) {
+		if(cookies.length() < 3)
+			return 104;
 		user = new User();
 		user.setCookies(cookies);
 		userList = userDAO.findByExample(user);
 		if(userList.isEmpty())
 			return 104;
 		user = userList.get(0);
+		login(user.getEmail(), user.getPassword());
 		return 0;
 	}
 	
@@ -94,6 +97,8 @@ public class UserService {
 	
 	public int resetPassword(String cookies, String oldPassword, String newPassword, String reNewPassword) {
 		//relogin
+		if(cookies.length() < 3)
+			return 104;
 		user = new User();
 		user.setCookies(cookies);
 		userList = userDAO.findByExample(user);
@@ -114,6 +119,8 @@ public class UserService {
 			String birthday, String education, String working,
 			String signature) {
 		//relogin
+		if(cookies.length() < 3)
+			return 104;
 		user = new User();
 		user.setCookies(cookies);
 		userList = userDAO.findByExample(user);

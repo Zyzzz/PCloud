@@ -10,6 +10,8 @@ public class DateTool {
 	static SimpleDateFormat datetimeFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 	static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
 	public static String timeToString(Time time) {
+		if(time == null)
+			return null;
 		return timeFormat.format(time);
 	}
 	public static Time stringToTime(String string) {
@@ -22,6 +24,8 @@ public class DateTool {
 		}
 	}
 	public static String datetimeToString(Date datetime) {
+		if(datetime == null)
+			return null;
 		return datetimeFormat.format(datetime);
 	}
 	public static Date stringToDatetime(String string) {
@@ -33,6 +37,8 @@ public class DateTool {
 			return null;
 		}
 	}public static String dateToString(Date date) {
+		if(date == null)
+			return null;
 		return dateFormat.format(date);
 	}
 	public static Date stringToDate(String string) {

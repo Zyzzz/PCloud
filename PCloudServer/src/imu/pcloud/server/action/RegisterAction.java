@@ -30,10 +30,10 @@ public class RegisterAction extends ActionSupport {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getRePassword() {
+	public String getRepassword() {
 		return repassword;
 	}
-	public void setRePassword(String rePassword) {
+	public void setRepassword(String rePassword) {
 		this.repassword = rePassword;
 	}
 	public UserModel getResult() {
@@ -45,6 +45,7 @@ public class RegisterAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println(username + ":" + password + "////" + repassword);
 		UserService userService = new UserService();
 		int status = userService.register(username, email, password, repassword);
 		if(status == 0)
