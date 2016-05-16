@@ -54,8 +54,8 @@ public class SharingRecordService {
 		}
 	}
 	
-	public int getSharingList(){
-		sharingRecords = sharingRecordDAO.findAll();
+	public int getSharingList(Integer planCircleId){
+		sharingRecords = sharingRecordDAO.findByPlanCircleId(planCircleId);
 		return 0;
 	}
 	

@@ -102,7 +102,11 @@ public class SharingRecordDAO extends BaseHibernateDAO  {
 		);
 	}
 	
-
+	public List findByPlanCircleId(Integer planCircleId) {
+		String hqlString = "from SharingRecord where planCircleID = " + planCircleId;
+		return getSession().createQuery(hqlString).list();
+	}
+	
 	public List findAll() {
 		log.debug("finding all SharingRecord instances");
 		try {
