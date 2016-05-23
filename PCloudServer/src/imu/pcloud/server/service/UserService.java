@@ -64,6 +64,7 @@ public class UserService {
 		user.setPassword(password);
 		user.setVerifyFlag(0);
 		userDAO.save(user);
+		login(user.getEmail(), user.getPassword());
 		return 0;
 	}
 	
@@ -76,7 +77,6 @@ public class UserService {
 		if(userList.isEmpty())
 			return 104;
 		user = userList.get(0);
-		login(user.getEmail(), user.getPassword());
 		return 0;
 	}
 	

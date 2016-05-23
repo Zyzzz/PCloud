@@ -28,6 +28,7 @@ public class GetUserSharingListAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println(cookies);
 		int statc = sharingRecordService.getUserSharingList(cookies); 
 		if(statc==0){
 			result.setStatus(303);

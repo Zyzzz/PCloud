@@ -2,6 +2,8 @@ package imu.pcloud.server.been;
 
 import java.sql.Timestamp;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * SharingRecord entity. @author MyEclipse Persistence Tools
  */
@@ -61,7 +63,8 @@ public class SharingRecord implements java.io.Serializable {
 	public void setLoadingTime(Integer loadingTime) {
 		this.loadingTime = loadingTime;
 	}
-
+	
+	@JSON(format="yyyy-MM-dd HH:mm:ss")
 	public Timestamp getSharingTime() {
 		return this.sharingTime;
 	}
@@ -69,7 +72,8 @@ public class SharingRecord implements java.io.Serializable {
 	public void setSharingTime(Timestamp sharingTime) {
 		this.sharingTime = sharingTime;
 	}
-
+	
+	@JSON(format="yyyy-MM-dd HH:mm:ss")
 	public Timestamp getLastUpdatingTime() {
 		return this.lastUpdatingTime;
 	}
