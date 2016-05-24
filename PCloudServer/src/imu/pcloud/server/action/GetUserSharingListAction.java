@@ -13,6 +13,7 @@ public class GetUserSharingListAction extends ActionSupport {
 	SharingRecordService sharingRecordService = new SharingRecordService();
 	String cookies;
 	PlanSharingListModel result = new PlanSharingListModel();
+	
 	public String getCookies() {
 		return cookies;
 	}

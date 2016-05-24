@@ -20,8 +20,10 @@ public class PlanSharingService {
 		SharingRecord sharingRecord = new SharingRecord();
 		sharingRecord.setUserId(userId);
 		List<SharingRecord> sharingRecords = sharingRecordDAO.findByExample(sharingRecord);
-		if(personalPlans.isEmpty())
+		if(personalPlans.isEmpty()){
 			planSharingListModel.setStatus(401);
+			return;
+		}
 		for(int i = 0; i < personalPlans.size(); i++) {
 			int q = 0;
 			for(q = 0; q < sharingRecords.size(); q++) {
@@ -34,7 +36,27 @@ public class PlanSharingService {
 		planSharingListModel.setSharingRecords(sharingRecords);
 		planSharingListModel.setStatus(400);
 	}
-
+	
+	public void findPersonalSharingByCircleID(int planCircleId){
+		List<SharingRecord> sharingRecords = sharingRecordDAO.findByPlanCircleId(planCircleId);
+		List<PersonalPlan> personalPlans = personalPlanDAO.findAll();
+		if(sharingRecords.isEmpty()){
+			planSharingListModel.setStatus(401);
+			return;
+		}
+		
+		else {
+			for(int i = 0;i<sharingRecords.size();i++){
+				for(int j = 0;j<personalPlans.size();j++){
+					if(sharingRecords.get(i).getId().getPersonalPlanId()==personalPlans.get(j).getId()){
+						planSharingListModel.getPersonalPlans().add(personalPlans.get(j));
+					}
+				}
+			}
+		}
+		planSharingListModel.setSharingRecords(sharingRecords);
+		planSharingListModel.setStatus(400);
+	}
 	public PlanSharingListModel getPlanSharingListModel() {
 		return planSharingListModel;
 	}

@@ -1,6 +1,8 @@
 package imu.pcloud.server.action;
 
+import imu.pcloud.server.model.PlanSharingListModel;
 import imu.pcloud.server.model.SharingList;
+import imu.pcloud.server.service.PlanSharingService;
 import imu.pcloud.server.service.SharingRecordService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -8,9 +10,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GetSharingListAction extends ActionSupport {
 
 	private Integer planCircleId;
-	private SharingRecordService sharingRecordService = new SharingRecordService();
-	private SharingList result = new SharingList();
-	
+	SharingRecordService sharingRecordService = new SharingRecordService();
+	private PlanSharingListModel result = new PlanSharingListModel();
 	
 	public Integer getPlanCircleId() {
 		return planCircleId;
@@ -21,14 +22,12 @@ public class GetSharingListAction extends ActionSupport {
 		this.planCircleId = planCircleId;
 	}
 
-
-
-	public SharingList getResult() {
+	public PlanSharingListModel getResult() {
 		return result;
 	}
 
 
-	public void setResult(SharingList result) {
+	public void setResult(PlanSharingListModel result) {
 		this.result = result;
 	}
 
@@ -36,14 +35,9 @@ public class GetSharingListAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		
-		int statac = sharingRecordService.getSharingList(planCircleId);
-		if(statac == 0){
-			result.setSharingRecords(sharingRecordService.getSharingRecords());
-			result.setStatus(statac);
-		}else {
-			result.setStatus(304);
-		}
+		PlanSharingService planSharingService = new PlanSharingService();
+		planSharingService.findPersonalSharingByCircleID(planCircleId);
+		result = planSharingService.getPlanSharingListModel();
 		return SUCCESS;
 	}
 }
