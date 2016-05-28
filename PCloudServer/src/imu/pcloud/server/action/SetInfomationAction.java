@@ -16,7 +16,18 @@ public class SetInfomationAction extends ActionSupport {
 	private String education;
 	private String working;
 	private String signature;
+	private String name;
 	
+	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getCookies() {
 		return cookies;
 	}
@@ -78,7 +89,7 @@ public class SetInfomationAction extends ActionSupport {
 		// TODO Auto-generated method stub
 		//System.out.println(cookies);
 		UserService userService = new UserService();
-		int status = userService.setInformation(cookies, sex, birthday, education, working, signature);
+		int status = userService.setInformation(cookies, name, sex, birthday, education, working, signature);
 		result.setStatus(status);
 		if(status == 0)
 			result.setByUser(userService.getUser());

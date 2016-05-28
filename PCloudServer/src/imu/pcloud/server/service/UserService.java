@@ -115,7 +115,7 @@ public class UserService {
 		return 0;
 	}
 	
-	public int setInformation(String cookies, String sex, 
+	public int setInformation(String cookies, String name, String sex, 
 			String birthday, String education, String working,
 			String signature) {
 		//relogin
@@ -133,6 +133,7 @@ public class UserService {
 		user.setEducation(education);
 		user.setWorking(working);
 		user.setSignature(signature);
+		user.setUsername(name);
 		userDAO.save(user);
 		return 0;
 	}
