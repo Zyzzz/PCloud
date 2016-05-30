@@ -50,6 +50,7 @@ public class PlanSharingService {
 				for(int j = 0;j<personalPlans.size();j++){
 					if(sharingRecords.get(i).getId().getPersonalPlanId()==personalPlans.get(j).getId()){
 						planSharingListModel.getPersonalPlans().add(personalPlans.get(j));
+						break;
 					}
 				}
 			}
