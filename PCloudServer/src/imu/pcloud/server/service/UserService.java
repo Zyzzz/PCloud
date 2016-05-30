@@ -44,6 +44,7 @@ public class UserService {
 		user = userList.get(0);
 		String cookies = md5.Md5(user.getEmail() + user.getUsername() + System.currentTimeMillis()) + "@" + user.getId();
 		user.setCookies(cookies);
+		System.out.println(user.getId());
 		userDAO.save(user);
 		return 0;
 	}
