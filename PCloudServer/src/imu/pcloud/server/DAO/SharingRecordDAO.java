@@ -36,6 +36,7 @@ public class SharingRecordDAO extends BaseHibernateDAO  {
             log.error("save failed", re);
             throw re;
         }
+        getSession().flush();
         getSession().beginTransaction().commit();
         getSession().close();
     }
@@ -49,6 +50,7 @@ public class SharingRecordDAO extends BaseHibernateDAO  {
             log.error("delete failed", re);
             throw re;
         }
+        getSession().flush();
         getSession().beginTransaction().commit();
         getSession().close();
     }

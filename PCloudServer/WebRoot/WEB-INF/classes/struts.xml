@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+
+ <!-- 配置一系列常量 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!-- <constant name="struts.devMode" value="true"/> -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.objectFactory.spring.autoWire" value="auto"></constant>
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+    <constant name="struts.multipart.maxSize" value="100000000"/> 
+    <constant name="struts.json.dateformat" value="yyyy-MM-dd HH:mm:ss"/>
+
 	<package name="default" namespace="/"
 		extends="struts-default, json-default">
 		
@@ -130,6 +140,15 @@
 		</action>
 			<action name="getSharingList" class="imu.pcloud.server.action.GetSharingListAction">
 
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
+		<action name="resetPassword" class="imu.pcloud.server.action.ResetPasswordAction">
 			<result name="success" type="json">
 				<param name="root">result</param>
 				<param name="excludeNullProperties">true</param>

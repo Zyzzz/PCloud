@@ -39,12 +39,15 @@ public class AddPlanAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		
+		System.out.println(cookies);
+		System.out.println(content);
+		System.out.println(name);
 		PersonalPlanService personalPlanService = new PersonalPlanService();
 		UserService userService = new UserService();
 		int statc = userService.reLogin(cookies);
 		if (statc==0){
-			statc =personalPlanService.addPlan(content, name, userService.getUser().getId());
+			statc = personalPlanService.addPlan(content, name, userService.getUser().getId());
+			
 			if(statc==0){
 				result.setStatus(200);
 			}

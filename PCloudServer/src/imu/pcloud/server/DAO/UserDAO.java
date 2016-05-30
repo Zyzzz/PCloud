@@ -43,6 +43,7 @@ public class UserDAO extends BaseHibernateDAO  {
             log.error("save failed", re);
             throw re;
         }
+        getSession().flush();
         getSession().beginTransaction().commit();
         getSession().close();
     }
@@ -56,11 +57,13 @@ public class UserDAO extends BaseHibernateDAO  {
             log.error("delete failed", re);
             throw re;
         }
+        getSession().flush();
         getSession().beginTransaction().commit();
         getSession().close();
     }
     
     public User findById( java.lang.Integer id) {
+    	getSession().clear();
         log.debug("getting User instance with id: " + id);
         try {
             User instance = (User) getSession()

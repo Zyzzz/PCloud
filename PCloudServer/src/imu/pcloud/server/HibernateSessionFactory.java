@@ -58,7 +58,6 @@ public class HibernateSessionFactory {
 					: null;
 			threadLocal.set(session);
 		}
-
         return session;
     }
 
@@ -105,5 +104,7 @@ public class HibernateSessionFactory {
 	public static Configuration getConfiguration() {
 		return configuration;
 	}
+	
+	
 
 }
