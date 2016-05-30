@@ -60,6 +60,7 @@ public class MultiPlanDAO extends BaseHibernateDAO  {
     }
     
     public MultiPlan findById( java.lang.Integer id) {
+    	getSession().clear();
         log.debug("getting MultiPlan instance with id: " + id);
         try {
             MultiPlan instance = (MultiPlan) getSession()
@@ -73,6 +74,7 @@ public class MultiPlanDAO extends BaseHibernateDAO  {
     
     
     public List findByExample(MultiPlan instance) {
+    	getSession().clear();
         log.debug("finding MultiPlan instance by example");
         try {
             List results = getSession()

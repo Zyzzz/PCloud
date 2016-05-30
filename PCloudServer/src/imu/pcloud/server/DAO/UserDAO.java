@@ -77,6 +77,7 @@ public class UserDAO extends BaseHibernateDAO  {
     
     
     public List findByExample(User instance) {
+    	getSession().clear();
         log.debug("finding User instance by example");
         try {
             List results = getSession()

@@ -56,6 +56,7 @@ public class CommentDAO extends BaseHibernateDAO  {
     }
     
     public Comment findById( imu.pcloud.server.been.CommentId id) {
+    	getSession().clear();
         log.debug("getting Comment instance with id: " + id);
         try {
             Comment instance = (Comment) getSession()
@@ -69,6 +70,7 @@ public class CommentDAO extends BaseHibernateDAO  {
     
     
     public List findByExample(Comment instance) {
+    	getSession().clear();
         log.debug("finding Comment instance by example");
         try {
             List results = getSession()
