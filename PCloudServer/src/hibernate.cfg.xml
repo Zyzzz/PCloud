@@ -17,7 +17,7 @@
 		<property name="hibernate.c3p0.max_statements">100</property>
 		<property name="hibernate.c3p0.idle_test_period">3000</property>
 		<!-- 当连接池耗尽并接到获得连接的请求，则新增加连接的数量 -->
-		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<property name="hibernate.c3p0.acquire_increment">5</property>
 		<!-- 是否验证，检查连接 -->
 		<property name="hibernate.c3p0.validate">false</property>
 		
