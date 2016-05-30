@@ -71,24 +71,24 @@ public class UserService {
 	public int reLogin(String cookies) {
 		if(cookies.length() < 3)
 			return 104;
-		user = new User();
-		user.setCookies(cookies);
-		userList = userDAO.findByExample(user);
-		if(userList.isEmpty())
+		int s = cookies.lastIndexOf("@");
+		String strId = cookies.substring(s + 1);
+		int id = Integer.parseInt(strId);
+		//relogin
+		user = userDAO.findById(id);
+		if(user == null || !user.getCookies().equals(cookies)) {
+			user = null;
 			return 104;
-		user = userList.get(0);
+		}
 		return 0;
 	}
 	
 	public int logout(String cookies) {
 		//relogin
-		user = new User();
-		user.setCookies(cookies);
-		userList = userDAO.findByExample(user);
-		if(userList.isEmpty()) {
+		int status = reLogin(cookies);
+		if(status != 0 || !user.getCookies().equals(cookies)) {
 			return 104;
 		}
-		user = userList.get(0);
 		//clean cookies
 		user.setCookies("");
 		userDAO.save(user);
@@ -97,19 +97,14 @@ public class UserService {
 	
 	public int resetPassword(String cookies, String oldPassword, String newPassword, String reNewPassword) {
 		//relogin
-		if(cookies.length() < 3)
-			return 104;
-		user = new User();
-		user.setCookies(cookies);
-		userList = userDAO.findByExample(user);
-		if(userList.isEmpty())
+		int status = reLogin(cookies);
+		if(status != 0)
 			return 104;
 		//check password
-		else if(!oldPassword.equals(userList.get(0).getPassword()))
+		else if(!oldPassword.equals(user.getPassword()))
 			return 105;
 		else if(!newPassword.equals(reNewPassword))
 			return 103;
-		user = userList.get(0);
 		user.setPassword(newPassword);
 		userDAO.save(user);
 		return 0;
@@ -119,15 +114,10 @@ public class UserService {
 			String birthday, String education, String working,
 			String signature) {
 		//relogin
-		if(cookies.length() < 3)
-			return 104;
-		user = new User();
-		user.setCookies(cookies);
-		userList = userDAO.findByExample(user);
-		if(userList.isEmpty())
+		int status = reLogin(cookies);
+		if(status != 0)
 			return 104;
 		//set information
-		user = userList.get(0);
 		user.setSex(sex);
 		user.setBirthday(DateTool.stringToDate(birthday));
 		user.setEducation(education);

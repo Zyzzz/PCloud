@@ -29,7 +29,7 @@ public class ReLoginAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("-" +cookies + "-");
+		System.out.println(cookies);
 		UserService userService = new UserService();
 		int status = userService.reLogin(cookies);
 		result.setStatus(status);
