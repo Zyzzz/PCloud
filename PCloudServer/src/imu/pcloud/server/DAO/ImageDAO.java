@@ -56,7 +56,6 @@ public class ImageDAO extends BaseHibernateDAO {
 	}
 
 	public Image findById(java.lang.Integer id) {
-    	getSession().clear();
 		log.debug("getting Image instance with id: " + id);
 		try {
 			Image instance = (Image) getSession().get(
@@ -69,7 +68,6 @@ public class ImageDAO extends BaseHibernateDAO {
 	}
 
 	public List findByExample(Image instance) {
-    	getSession().clear();
 		log.debug("finding Image instance by example");
 		try {
 			List results = getSession()
