@@ -106,7 +106,11 @@ public class CommentDAO extends BaseHibernateDAO  {
 		);
 	}
 	
-
+	public List findByPersonalPlanId(Integer personalPlanId){
+		getSession().clear();
+		String hqlString = "from Comment where personalPlanId = " + personalPlanId;
+		return getSession().createQuery(hqlString).list();
+	}
 	public List findAll() {
 		log.debug("finding all Comment instances");
 		try {

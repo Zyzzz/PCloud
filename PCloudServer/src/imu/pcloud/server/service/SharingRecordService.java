@@ -74,7 +74,6 @@ public class SharingRecordService {
 	}
 	
 	public int deleteSharing(Integer personalPlanId,Integer planCircleId){
-		
 			sharingRecordId.setPersonalPlanId(personalPlanId);
 			sharingRecordId.setPlanCircleId(planCircleId);
 			sharingRecord = sharingRecordDAO.findById(sharingRecordId);
