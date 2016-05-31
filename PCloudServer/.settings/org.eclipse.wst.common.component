@@ -2,6 +2,7 @@
     <wb-module deploy-name="PCloudServer">
         <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/"/>
         <property name="context-root" value="PCloudServer"/>
         <property name="java-output-path" value="/PCloudServer/WebRoot/WEB-INF/classes"/>
     </wb-module>

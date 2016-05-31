@@ -56,7 +56,6 @@ public class PlanCircleDAO extends BaseHibernateDAO  {
     }
     
     public PlanCircle findById( java.lang.Integer id) {
-    	getSession().clear();
         log.debug("getting PlanCircle instance with id: " + id);
         try {
             PlanCircle instance = (PlanCircle) getSession()
@@ -70,7 +69,6 @@ public class PlanCircleDAO extends BaseHibernateDAO  {
     
     
     public List findByExample(PlanCircle instance) {
-    	getSession().clear();
         log.debug("finding PlanCircle instance by example");
         try {
             List results = getSession()

@@ -60,7 +60,6 @@ public class PersonalPlanDAO extends BaseHibernateDAO {
 	}
 
 	public PersonalPlan findById(java.lang.Integer id) {
-    	getSession().clear();
 		log.debug("getting PersonalPlan instance with id: " + id);
 		try {
 			PersonalPlan instance = (PersonalPlan) getSession().get(
@@ -73,7 +72,6 @@ public class PersonalPlanDAO extends BaseHibernateDAO {
 	}
 
 	public List findByExample(PersonalPlan instance) {
-    	getSession().clear();
 		log.debug("finding PersonalPlan instance by example");
 		try {
 			List results = getSession()
