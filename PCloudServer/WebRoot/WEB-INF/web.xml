@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-    
+
   <display-name>PCloudServer</display-name>
   <filter>
     <filter-name>struts2</filter-name>
@@ -11,7 +11,8 @@
     <url-pattern>*.action</url-pattern>
   </filter-mapping>
 
-    
+
+      
    <filter>
     <filter-name>strutsCleanup</filter-name>
     <filter-class>
@@ -22,5 +23,6 @@
         <filter-name>strutsCleanup</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+     
  
 </web-app>
