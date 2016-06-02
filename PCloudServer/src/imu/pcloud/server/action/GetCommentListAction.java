@@ -21,11 +21,22 @@ public class GetCommentListAction extends ActionSupport {
 	public void setPersonalPlanId(Integer personalPlanId) {
 		this.personalPlanId = personalPlanId;
 	}
+	
+
+	public CommentList getResult() {
+		return result;
+	}
+
+
+	public void setResult(CommentList result) {
+		this.result = result;
+	}
 
 
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		System.out.print("personalPlanId"+personalPlanId);
 		int stata = commentService.getCommentList(personalPlanId);
 		if(stata==0){
 			result.setStatus(stata);

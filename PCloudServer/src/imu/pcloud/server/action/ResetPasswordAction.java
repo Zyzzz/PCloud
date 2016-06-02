@@ -5,6 +5,7 @@ import imu.pcloud.server.model.UserModel;
 import imu.pcloud.server.service.UserService;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Result;
 
 public class ResetPasswordAction extends ActionSupport {
 
@@ -12,7 +13,7 @@ public class ResetPasswordAction extends ActionSupport {
 	private String oldPassword;
 	private String newPassword;
 	private String rePassword;
-	private BaseModel result;
+	private BaseModel result = new BaseModel();
 	
 	public String getCookies() {
 		return cookies;
@@ -57,10 +58,13 @@ public class ResetPasswordAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println(cookies);
+		System.out.println(oldPassword + ":" + newPassword + "/" + rePassword);
 		UserService userService = new UserService();
 		int status = userService.resetPassword(cookies, oldPassword, newPassword, rePassword);
 		result.setStatus(status);
-		return super.execute();
+		System.out.println("--------result--------\n" + result.getResult());
+		return SUCCESS;
 	}
 
 	

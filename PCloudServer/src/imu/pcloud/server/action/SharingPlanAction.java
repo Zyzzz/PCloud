@@ -56,7 +56,8 @@ public class SharingPlanAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		
+		result = new BaseModel();
+		System.out.println(personalPlanId + ":" + planCircleId + "/" + cookies);
 		int statc = sharingRecordService.Sharing(personalPlanId, planCircleId, cookies);
 		if(statc == 0){
 			result.setStatus(301);

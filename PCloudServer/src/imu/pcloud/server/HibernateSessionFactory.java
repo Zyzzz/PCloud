@@ -1,5 +1,7 @@
 package imu.pcloud.server;
 
+import org.hibernate.CacheMode;
+import org.hibernate.FlushMode;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
@@ -57,6 +59,7 @@ public class HibernateSessionFactory {
 					: null;
 			threadLocal.set(session);
 		}
+		session.setFlushMode(FlushMode.ALWAYS);
         return session;
     }
 
@@ -83,7 +86,6 @@ public class HibernateSessionFactory {
     public static void closeSession() throws HibernateException {
         Session session = (Session) threadLocal.get();
         threadLocal.set(null);
-
         if (session != null) {
             session.close();
         }

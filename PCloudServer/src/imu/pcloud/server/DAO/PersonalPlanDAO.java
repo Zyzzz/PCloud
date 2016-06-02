@@ -40,8 +40,9 @@ public class PersonalPlanDAO extends BaseHibernateDAO {
 			log.error("save failed", re);
 			throw re;
 		}
-        getSession().flush();
-        getSession().beginTransaction().commit();
+        ////getSession().flush();
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
         getSession().close();
 	}
 
@@ -54,12 +55,15 @@ public class PersonalPlanDAO extends BaseHibernateDAO {
 			log.error("delete failed", re);
 			throw re;
 		}
-        getSession().flush();
-        getSession().beginTransaction().commit();
+        ////getSession().flush();
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
         getSession().close();
 	}
 
 	public PersonalPlan findById(java.lang.Integer id) {
+    	//getSession().flush();
+    	//getSession().clear();
 		log.debug("getting PersonalPlan instance with id: " + id);
 		try {
 			PersonalPlan instance = (PersonalPlan) getSession().get(
@@ -72,6 +76,8 @@ public class PersonalPlanDAO extends BaseHibernateDAO {
 	}
 
 	public List findByExample(PersonalPlan instance) {
+    	//getSession().flush();
+    	//getSession().clear();
 		log.debug("finding PersonalPlan instance by example");
 		try {
 			List results = getSession()

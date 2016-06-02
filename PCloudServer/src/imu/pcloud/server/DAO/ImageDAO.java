@@ -36,8 +36,9 @@ public class ImageDAO extends BaseHibernateDAO {
 			log.error("save failed", re);
 			throw re;
 		}
-        getSession().flush();
-        getSession().beginTransaction().commit();
+        ////getSession().flush();
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
         getSession().close();
 	}
 
@@ -50,12 +51,15 @@ public class ImageDAO extends BaseHibernateDAO {
 			log.error("delete failed", re);
 			throw re;
 		}
-        getSession().flush();
-        getSession().beginTransaction().commit();
+        ////getSession().flush();
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
         getSession().close();
 	}
 
 	public Image findById(java.lang.Integer id) {
+    	//getSession().flush();
+    	//getSession().clear();
 		log.debug("getting Image instance with id: " + id);
 		try {
 			Image instance = (Image) getSession().get(
@@ -68,6 +72,8 @@ public class ImageDAO extends BaseHibernateDAO {
 	}
 
 	public List findByExample(Image instance) {
+    	//getSession().flush();
+    	//getSession().clear();
 		log.debug("finding Image instance by example");
 		try {
 			List results = getSession()

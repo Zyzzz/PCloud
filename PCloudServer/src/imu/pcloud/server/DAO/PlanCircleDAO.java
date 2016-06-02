@@ -36,8 +36,9 @@ public class PlanCircleDAO extends BaseHibernateDAO  {
             log.error("save failed", re);
             throw re;
         }
-        getSession().flush();
-        getSession().beginTransaction().commit();
+        ////getSession().flush();
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
         getSession().close();
     }
     
@@ -50,12 +51,15 @@ public class PlanCircleDAO extends BaseHibernateDAO  {
             log.error("delete failed", re);
             throw re;
         }
-        getSession().flush();
-        getSession().beginTransaction().commit();
+        ////getSession().flush();
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
         getSession().close();
     }
     
     public PlanCircle findById( java.lang.Integer id) {
+    	//getSession().flush();
+    	//getSession().clear();
         log.debug("getting PlanCircle instance with id: " + id);
         try {
             PlanCircle instance = (PlanCircle) getSession()
@@ -69,6 +73,8 @@ public class PlanCircleDAO extends BaseHibernateDAO  {
     
     
     public List findByExample(PlanCircle instance) {
+    	//getSession().flush();
+    	//getSession().clear();
         log.debug("finding PlanCircle instance by example");
         try {
             List results = getSession()

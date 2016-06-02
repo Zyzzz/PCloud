@@ -36,8 +36,9 @@ public class CommentDAO extends BaseHibernateDAO  {
             log.error("save failed", re);
             throw re;
         }
-        getSession().flush();
-        getSession().beginTransaction().commit();
+        ////getSession().flush();
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
         getSession().close();
     }
     
@@ -50,12 +51,15 @@ public class CommentDAO extends BaseHibernateDAO  {
             log.error("delete failed", re);
             throw re;
         }
-        getSession().flush();
-        getSession().beginTransaction().commit();
+        ////getSession().flush();
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
         getSession().close();
     }
     
     public Comment findById( imu.pcloud.server.been.CommentId id) {
+    	//getSession().flush();
+    	//getSession().clear();
         log.debug("getting Comment instance with id: " + id);
         try {
             Comment instance = (Comment) getSession()
@@ -69,6 +73,8 @@ public class CommentDAO extends BaseHibernateDAO  {
     
     
     public List findByExample(Comment instance) {
+    	//getSession().flush();
+    	//getSession().clear();
         log.debug("finding Comment instance by example");
         try {
             List results = getSession()
@@ -105,7 +111,7 @@ public class CommentDAO extends BaseHibernateDAO  {
 	}
 	
 	public List findByPersonalPlanId(Integer personalPlanId){
-		getSession().clear();
+		//getSession().clear();
 		String hqlString = "from Comment where personalPlanId = " + personalPlanId;
 		return getSession().createQuery(hqlString).list();
 	}
