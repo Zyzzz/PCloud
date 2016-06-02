@@ -77,7 +77,7 @@ public class AddCommentAction extends ActionSupport {
 		else{
 			result.setStatus(104);
 		}
-		return super.execute();
+		return SUCCESS;
 	}
 
 }
