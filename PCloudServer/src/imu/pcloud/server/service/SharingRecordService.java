@@ -79,17 +79,7 @@ public class SharingRecordService {
 			sharingRecord = sharingRecordDAO.findById(sharingRecordId);
 			sharingRecordDAO.delete(sharingRecord);
 			return 0;
-	}
-	
-	public int sharingDownloan(Integer personalPlanId,Integer planCircleId){
-		sharingRecordId.setPersonalPlanId(personalPlanId);
-		sharingRecordId.setPlanCircleId(planCircleId);
-		sharingRecord = sharingRecordDAO.findById(sharingRecordId);
-		int loadingTime = sharingRecord.getLoadingTime();
-		loadingTime++;
-		sharingRecord.setLoadingTime(loadingTime);
-		sharingRecordDAO.save(sharingRecord);
-		return 0;
+		
 	}
 	
 }

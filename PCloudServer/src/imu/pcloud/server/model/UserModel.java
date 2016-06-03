@@ -57,8 +57,8 @@ public class UserModel extends BaseModel{
 		this.birthday = DateTool.dateToString(user.getBirthday());
 		this.education = user.getEducation();
 		this.working = user.getWorking();
-		this.signature = user.getSecretKey();
-		verifyFlag = user.getVerifyFlag();
+		this.signature = user.getSignature();
+		this.verifyFlag = user.getVerifyFlag();
 		this.secretKey = user.getSecretKey();
 		this.cookies = user.getCookies();
 	}
