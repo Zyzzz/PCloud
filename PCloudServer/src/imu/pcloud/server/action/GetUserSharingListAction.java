@@ -40,8 +40,8 @@ public class GetUserSharingListAction extends ActionSupport {
 			return SUCCESS;
 		}
 		planSharingService.findPersonalSharing(userService.getUser().getId());
-		result.setStatus(400);
 		result = planSharingService.getPlanSharingListModel();
+		result.setStatus(400);
 		return SUCCESS;
 	}	
 }
