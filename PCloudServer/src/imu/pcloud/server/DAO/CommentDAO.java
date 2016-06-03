@@ -112,7 +112,7 @@ public class CommentDAO extends BaseHibernateDAO  {
 	
 	public List findByPersonalPlanId(Integer personalPlanId){
 		//getSession().clear();
-		String hqlString = "from Comment where personalPlanId = " + personalPlanId;
+		String hqlString = "from Comment where personalPlanId = " + personalPlanId + "order by commentingTime";
 		return getSession().createQuery(hqlString).list();
 	}
 	public List findAll() {

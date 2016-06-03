@@ -59,7 +59,7 @@ public class HibernateSessionFactory {
 					: null;
 			threadLocal.set(session);
 		}
-		//session.setFlushMode(FlushMode.ALWAYS);
+		session.setFlushMode(FlushMode.ALWAYS);
         return session;
     }
 
