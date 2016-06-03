@@ -73,6 +73,9 @@ public class AddCommentAction extends ActionSupport {
 			 if(statc == 0){
 				 result.setStatus(statc);
 			 }
+			 else{
+				 result.setStatus(503);
+			 }
 		}
 		else{
 			result.setStatus(104);
