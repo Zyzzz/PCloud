@@ -30,8 +30,15 @@ public class IncreaseLoadingTimeAction extends ActionSupport {
 	public void setResult(BaseModel result) {
 		this.result = result;
 	}
-	
-	
-	
-	
+	@Override
+	public String execute() throws Exception {
+		// TODO Auto-generated method stub
+		int status = sharingRecordService.sharingDownloan(personalPlanId, planCircleId);
+		if(status == 0){
+			result.setStatus(0);
+		}else {
+			result.setStatus(502);
+		}
+		return SUCCESS;
+	}
 }
