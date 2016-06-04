@@ -2,94 +2,83 @@ package imu.pcloud.server.been;
 
 import java.sql.Timestamp;
 
-
 /**
  * SharingRecord entity. @author MyEclipse Persistence Tools
  */
 
-public class SharingRecord  implements java.io.Serializable {
+public class SharingRecord implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private SharingRecordId id;
+	private Integer loadingTime;
+	private Timestamp sharingTime;
+	private Timestamp lastUpdatingTime;
+	private Integer userId;
 
-     private SharingRecordId id;
-     private Integer loadingTime;
-     private Timestamp sharingTime;
-     private Timestamp lastUpdatingTime;
-     private Integer userId;
+	// Constructors
 
-
-    // Constructors
-
-    /** default constructor */
-    public SharingRecord() {
-    }
+	/** default constructor */
+	public SharingRecord() {
+	}
 
 	/** minimal constructor */
-    public SharingRecord(SharingRecordId id, Integer loadingTime, Integer userId) {
-        this.id = id;
-        this.loadingTime = loadingTime;
-        this.userId = userId;
-    }
-    
-    /** full constructor */
-    public SharingRecord(SharingRecordId id, Integer loadingTime, Timestamp sharingTime, Timestamp lastUpdatingTime, Integer userId) {
-        this.id = id;
-        this.loadingTime = loadingTime;
-        this.sharingTime = sharingTime;
-        this.lastUpdatingTime = lastUpdatingTime;
-        this.userId = userId;
-    }
+	public SharingRecord(SharingRecordId id, Integer loadingTime, Integer userId) {
+		this.id = id;
+		this.loadingTime = loadingTime;
+		this.userId = userId;
+	}
 
-   
-    // Property accessors
+	/** full constructor */
+	public SharingRecord(SharingRecordId id, Integer loadingTime,
+			Timestamp sharingTime, Timestamp lastUpdatingTime, Integer userId) {
+		this.id = id;
+		this.loadingTime = loadingTime;
+		this.sharingTime = sharingTime;
+		this.lastUpdatingTime = lastUpdatingTime;
+		this.userId = userId;
+	}
 
-    public SharingRecordId getId() {
-        return this.id;
-    }
-    
-    public void setId(SharingRecordId id) {
-        this.id = id;
-    }
+	// Property accessors
 
-    public Integer getLoadingTime() {
-        return this.loadingTime;
-    }
-    
-    public void setLoadingTime(Integer loadingTime) {
-        this.loadingTime = loadingTime;
-    }
+	public SharingRecordId getId() {
+		return this.id;
+	}
 
-    public Timestamp getSharingTime() {
-        return this.sharingTime;
-    }
-    
-    public void setSharingTime(Timestamp sharingTime) {
-        this.sharingTime = sharingTime;
-    }
+	public void setId(SharingRecordId id) {
+		this.id = id;
+	}
 
-    public Timestamp getLastUpdatingTime() {
-        return this.lastUpdatingTime;
-    }
-    
-    public void setLastUpdatingTime(Timestamp lastUpdatingTime) {
-        this.lastUpdatingTime = lastUpdatingTime;
-    }
+	public Integer getLoadingTime() {
+		return this.loadingTime;
+	}
 
-    public Integer getUserId() {
-        return this.userId;
-    }
-    
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-   
+	public void setLoadingTime(Integer loadingTime) {
+		this.loadingTime = loadingTime;
+	}
 
+	public Timestamp getSharingTime() {
+		return this.sharingTime;
+	}
 
+	public void setSharingTime(Timestamp sharingTime) {
+		this.sharingTime = sharingTime;
+	}
 
+	public Timestamp getLastUpdatingTime() {
+		return this.lastUpdatingTime;
+	}
 
+	public void setLastUpdatingTime(Timestamp lastUpdatingTime) {
+		this.lastUpdatingTime = lastUpdatingTime;
+	}
 
+	public Integer getUserId() {
+		return this.userId;
+	}
 
-
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
 }

@@ -10,6 +10,7 @@ public class MultiPlanMember implements java.io.Serializable {
 
 	private Integer id;
 	private Integer multiPlanId;
+	private Integer userId;
 	private User user;
 
 	// Constructors
@@ -19,9 +20,9 @@ public class MultiPlanMember implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public MultiPlanMember(Integer multiPlanId, User user) {
+	public MultiPlanMember(Integer multiPlanId, Integer userId) {
 		this.multiPlanId = multiPlanId;
-		this.user = user;
+		this.userId = userId;
 	}
 
 	// Property accessors
@@ -42,6 +43,14 @@ public class MultiPlanMember implements java.io.Serializable {
 		this.multiPlanId = multiPlanId;
 	}
 
+	public Integer getUserId() {
+		return this.userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -50,10 +59,6 @@ public class MultiPlanMember implements java.io.Serializable {
 		this.user = user;
 	}
 	
-	public void setUserId(Integer userId) {
-		user = new User();
-		user.setId(userId);
-	}
 	
 
 }

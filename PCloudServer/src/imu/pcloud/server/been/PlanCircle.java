@@ -19,14 +19,12 @@ public class PlanCircle implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public PlanCircle(Integer id, String name) {
-		this.id = id;
+	public PlanCircle(String name) {
 		this.name = name;
 	}
 
 	/** full constructor */
-	public PlanCircle(Integer id, String name, Integer coverImageId) {
-		this.id = id;
+	public PlanCircle(String name, Integer coverImageId) {
 		this.name = name;
 		this.coverImageId = coverImageId;
 	}

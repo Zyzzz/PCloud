@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import imu.pcloud.server.DAO.UserDAO;
+import imu.pcloud.server.been.MultiPlanMember;
 import imu.pcloud.server.been.User;
 import imu.pcloud.server.utils.DateTool;
 import imu.pcloud.server.utils.MD5;
@@ -133,6 +134,8 @@ public class UserService {
 		this.userList = new ArrayList<User>();
 		ArrayList<User> userList = (ArrayList<User>) userDAO.findAll();
 		for(User u:userList) {
+			u.setPassword("");
+			u.setCookies("");
 			for(Integer i:userIds){
 				if(i == u.getId()) {
 					this.userList.add(u);
@@ -141,5 +144,12 @@ public class UserService {
 			}
 		}
 		return (ArrayList<User>) this.userList;
+	}
+	
+	public void setMultiPlanMembers(ArrayList<MultiPlanMember> multiPlanMembers) {
+		for(int i = 0; i < multiPlanMembers.size(); i++) {
+			User user = userDAO.findById(multiPlanMembers.get(i).getUserId());
+			multiPlanMembers.get(i).setUser(user);
+		}
 	}
 }

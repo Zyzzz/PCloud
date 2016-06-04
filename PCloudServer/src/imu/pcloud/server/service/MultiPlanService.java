@@ -16,6 +16,7 @@ public class MultiPlanService {
 	private MultiPlanMember multiPlanMember = new MultiPlanMember();
 	private MultiPlanDAO multiPlanDAO = new MultiPlanDAO();
 	private MultiPlanMemberDAO multiPlanMemberDAO = new MultiPlanMemberDAO();
+	private UserService userService = new UserService();
 	private List<MultiPlan> multiPlans = new ArrayList<>();
 	private List<MultiPlanMember> multiPlanMembers = new ArrayList<>();
 	
@@ -88,6 +89,7 @@ public class MultiPlanService {
 	
 	public int getMultiPlanMembers(Integer multiPlanId){
 		multiPlanMembers = multiPlanMemberDAO.findByMultiPlanId(multiPlanId);
+		userService.setMultiPlanMembers((ArrayList<MultiPlanMember>)multiPlanMembers);
 		return 0;
 	}
 	public int getMultiPlanListByUserId(Integer userId){
