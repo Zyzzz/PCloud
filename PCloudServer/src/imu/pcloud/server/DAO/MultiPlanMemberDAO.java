@@ -102,9 +102,9 @@ public class MultiPlanMemberDAO extends BaseHibernateDAO {
 		return findByProperty(MULTI_PLAN_ID, multiPlanId);
 	}
 
-	public List findByUserId(Object userId) {
-		return findByProperty(USER_ID, userId);
-	}
+//	public List findByUserId(Object userId) {
+//		return findByProperty(USER_ID, userId);
+//	}
 
 	public List findAll() {
 		log.debug("finding all MultiPlanMember instances");

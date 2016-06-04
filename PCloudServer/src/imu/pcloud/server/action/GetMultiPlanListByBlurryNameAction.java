@@ -30,6 +30,8 @@ public class GetMultiPlanListByBlurryNameAction extends ActionSupport {
 			result.setMultiPlans(multiPlanService.getMultiPlans());
 			result.setStatus(0);
 		}
+		else
+			result.setStatus(status);
 		return SUCCESS;
 	}
 	

@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 public class Plans {
 
@@ -29,6 +30,12 @@ public class Plans {
 		return gson.toJson(plans);
 	}
 	public void setByJsonString(String jsonString) {
-		plans = gson.fromJson(jsonString, new TypeToken<List<Plan>>(){}.getType());
+		try {
+			plans = gson.fromJson(jsonString, new TypeToken<List<Plan>>(){}.getType());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			plans = new ArrayList<Plan>();
+			e.printStackTrace();
+		}
 	}
 }
