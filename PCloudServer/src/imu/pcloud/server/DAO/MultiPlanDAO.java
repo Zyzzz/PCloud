@@ -93,6 +93,18 @@ public class MultiPlanDAO extends BaseHibernateDAO  {
         }
     }    
     
+    public List findBybBlurryName(String blurryName) {
+    	try {
+    		String str = "'%" + blurryName + "%'";
+	    	String hqlString = "from MultiPlan where name like " + str;
+			return getSession().createQuery(hqlString).list();
+    	} catch(RuntimeException re){
+            log.error("find by example failed", re);
+            throw re;
+        }
+    	
+    }
+    
     public List findByProperty(String propertyName, Object value) {
       log.debug("finding MultiPlan instance with property: " + propertyName
             + ", value: " + value);
