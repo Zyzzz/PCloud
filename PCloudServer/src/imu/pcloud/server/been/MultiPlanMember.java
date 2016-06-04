@@ -50,6 +50,10 @@ public class MultiPlanMember implements java.io.Serializable {
 		this.user = user;
 	}
 	
+	public void setUserId(Integer userId) {
+		user = new User();
+		user.setId(userId);
+	}
 	
 
 }
