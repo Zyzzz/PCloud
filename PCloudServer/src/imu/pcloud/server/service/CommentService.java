@@ -39,6 +39,7 @@ public class CommentService {
 		return 0;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public int getCommentList(Integer personalPlanId){
 		//commentDao.findByContent(content);
 		comments = commentDao.findByPersonalPlanId(personalPlanId);

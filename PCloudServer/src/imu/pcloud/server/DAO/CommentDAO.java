@@ -37,6 +37,9 @@ public class CommentDAO extends BaseHibernateDAO {
 			log.error("save failed", re);
 			throw re;
 		}
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
+        getSession().close();
 	}
 
 	public void delete(Comment persistentInstance) {
@@ -48,6 +51,9 @@ public class CommentDAO extends BaseHibernateDAO {
 			log.error("delete failed", re);
 			throw re;
 		}
+        getSession().beginTransaction();
+        getSession().getTransaction().commit();
+        getSession().close();
 	}
 
 	public Comment findById(java.lang.Integer id) {
