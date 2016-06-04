@@ -17,10 +17,5 @@ public class BaseHibernateDAO implements IBaseHibernateDAO {
 		return HibernateSessionFactory.getSession();
 	}
 	
-	/*	public List findByPersonalPlanId(Integer personalPlanId){
-		//getSession().clear();
-		String hqlString = "from Comment where personalPlanId = " + personalPlanId + "order by commentingTime";
-		return getSession().createQuery(hqlString).list();
-	}*/
 	
 }

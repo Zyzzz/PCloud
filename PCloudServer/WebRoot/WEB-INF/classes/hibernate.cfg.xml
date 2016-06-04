@@ -29,7 +29,7 @@
 			jdbc:mysql://183.175.12.153:33332/PCloud
 		</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password"></property>
+		<property name="connection.password">123456</property>
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
@@ -49,6 +49,7 @@
 
 
 		<property name="connection.characterEncoding">utf8</property>
+		<!-- maps -->
 		<mapping
 			resource="imu/pcloud/server/been/SharingRecord.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/PlanCircle.hbm.xml" />

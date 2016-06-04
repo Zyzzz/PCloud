@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see imu.pcloud.server.DAO.MultiPlanMember
+ * @see imu.pcloud.server.been.MultiPlanMember
  * @author MyEclipse Persistence Tools
  */
 public class MultiPlanMemberDAO extends BaseHibernateDAO {
@@ -60,7 +60,7 @@ public class MultiPlanMemberDAO extends BaseHibernateDAO {
 		log.debug("getting MultiPlanMember instance with id: " + id);
 		try {
 			MultiPlanMember instance = (MultiPlanMember) getSession().get(
-					"imu.pcloud.server.DAO.MultiPlanMember", id);
+					"imu.pcloud.server.been.MultiPlanMember", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -72,7 +72,7 @@ public class MultiPlanMemberDAO extends BaseHibernateDAO {
 		log.debug("finding MultiPlanMember instance by example");
 		try {
 			List results = getSession()
-					.createCriteria("imu.pcloud.server.DAO.MultiPlanMember")
+					.createCriteria("imu.pcloud.server.been.MultiPlanMember")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

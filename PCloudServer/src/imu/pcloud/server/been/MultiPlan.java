@@ -13,7 +13,7 @@ public class MultiPlan implements java.io.Serializable {
 	private String name;
 	private String content;
 	private Integer maxmumber;
-	private Integer condition;
+	private Integer userCondition;
 	private Integer coverImageId;
 
 	// Constructors
@@ -22,20 +22,14 @@ public class MultiPlan implements java.io.Serializable {
 	public MultiPlan() {
 	}
 
-	/** minimal constructor */
-	public MultiPlan(Integer id) {
-		this.id = id;
-	}
-
 	/** full constructor */
-	public MultiPlan(Integer id, Integer userId, String name, String content,
-			Integer maxmumber, Integer condition, Integer coverImageId) {
-		this.id = id;
+	public MultiPlan(Integer userId, String name, String content,
+			Integer maxmumber, Integer userCondition, Integer coverImageId) {
 		this.userId = userId;
 		this.name = name;
 		this.content = content;
 		this.maxmumber = maxmumber;
-		this.condition = condition;
+		this.userCondition = userCondition;
 		this.coverImageId = coverImageId;
 	}
 
@@ -81,12 +75,12 @@ public class MultiPlan implements java.io.Serializable {
 		this.maxmumber = maxmumber;
 	}
 
-	public Integer getCondition() {
-		return this.condition;
+	public Integer getUserCondition() {
+		return this.userCondition;
 	}
 
-	public void setCondition(Integer condition) {
-		this.condition = condition;
+	public void setUserCondition(Integer userCondition) {
+		this.userCondition = userCondition;
 	}
 
 	public Integer getCoverImageId() {
