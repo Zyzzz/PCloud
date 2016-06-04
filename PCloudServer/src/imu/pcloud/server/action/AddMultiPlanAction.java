@@ -61,7 +61,7 @@ public class AddMultiPlanAction extends ActionSupport {
 		int statc = userService.reLogin(cookies);
 		if (statc==0){
 			multiPlanService.addMultiPlan(userService.getUser().getId(), name, content, maxmumber, condition);
-		
+			result.setStatus(0);
 		}else{
 			result.setStatus(104);
 		}
