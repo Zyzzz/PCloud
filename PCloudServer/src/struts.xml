@@ -184,5 +184,14 @@
 				<param name="ignoreHierarchy" >false</param> 
 			</result>
 		</action>
+		<action name="addMultiPlan" class="imu.pcloud.server.action.AddMultiPlanAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<!-- <param name="charSet">UTF-8</param> -->
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
 	</package>
 </struts>    
