@@ -8,7 +8,7 @@
     <class name="imu.pcloud.server.been.PlanCircle" table="`Plan Circle`" catalog="PCloud">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="name" type="java.lang.String">
             <column name="name" not-null="true" />

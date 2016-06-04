@@ -40,15 +40,16 @@ public class MultiPlanService {
 		
 	public int addMultiPlan(Integer userId,String name,String content,
 	Integer maxmumber, Integer condition){
+		multiPlan = new MultiPlan();
 		multiPlan.setUserId(userId);
 		multiPlan.setName(name);
 		multiPlan.setContent(content);
 		multiPlan.setMaxmumber(maxmumber);
-		multiPlan.setCondition(condition);
+		multiPlan.setUserCondition(condition);
 		multiPlanDAO.save(multiPlan);
-		multiPlans = multiPlanDAO.findByExample(multiPlan);
-		System.out.print("multiPlan.getId():"+multiPlan.getId());
-		multiPlanMember.setMultiPlanId(multiPlans.get(0).getId());
+		//multiPlans = multiPlanDAO.findByExample(multiPlan);
+		//System.out.print("multiPlan.getId():"+multiPlan.getId());
+		multiPlanMember.setMultiPlanId(multiPlan.getId());
 		multiPlanMember.setUserId(userId);
 		multiPlanMemberDAO.save(multiPlanMember);
 		return 0;

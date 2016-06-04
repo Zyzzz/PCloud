@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
  			* Transaction control of the save(), update() and delete() operations 
 		can directly support Spring container-managed transactions or they can be augmented	to handle user-managed Spring transactions. 
 		Each of these methods provides additional information for how to configure it for the desired type of transaction control. 	
-	 * @see imu.pcloud.server.DAO.SharingRecord
+	 * @see imu.pcloud.server.been.SharingRecord
   * @author MyEclipse Persistence Tools 
  */
 public class SharingRecordDAO extends BaseHibernateDAO  {
