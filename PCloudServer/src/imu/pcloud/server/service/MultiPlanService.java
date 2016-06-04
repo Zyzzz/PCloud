@@ -76,7 +76,7 @@ public class MultiPlanService {
 	}
 	
 	public int getMultiPlanListByUserId(Integer userId){
-		multiPlans = multiPlanMemberDAO.findByUserId(userId);
+		multiPlanMembers = multiPlanMemberDAO.findByUserId(userId);
 		return 0;
 	}
 	
