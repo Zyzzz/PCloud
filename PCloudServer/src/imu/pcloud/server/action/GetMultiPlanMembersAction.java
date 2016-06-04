@@ -5,7 +5,7 @@ import imu.pcloud.server.service.MultiPlanService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GetMultiPlanMembers extends ActionSupport {
+public class GetMultiPlanMembersAction extends ActionSupport {
 	Integer multiPlanId;
 	MultiPlanList result = new MultiPlanList();
 	MultiPlanService multiPlanService = new MultiPlanService();
@@ -25,6 +25,12 @@ public class GetMultiPlanMembers extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		int status = multiPlanService.getMultiPlanMembers(multiPlanId);
+		if(status == 0){
+			result.setMultiPlanMembers(multiPlanService.getMultiPlanMembers());
+			result.setStatus(0);
+		}
+		
 		return SUCCESS;
 	}
 	
