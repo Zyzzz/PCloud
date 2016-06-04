@@ -71,14 +71,19 @@ public class MultiPlanService {
 	public int getMultiPlanByMultiPlanId(Integer multiPlanId){
 		multiPlan = multiPlanDAO.findById(multiPlanId);
 		multiPlanMembers = multiPlanMemberDAO.findByMultiPlanId(multiPlanId);
-		return 0 ;
+		return 0;
 	}
 	
 	public int getMultiPlanListByBlurryName(String blurryName){
 		multiPlans = multiPlanDAO.findBybBlurryName(blurryName);
-		return 0 ;
+		return 0;
 	}
 	
+	
+	public int getMultiPlanMembers(Integer multiPlanId){
+		multiPlanMembers = multiPlanMemberDAO.findByMultiPlanId(multiPlanId);
+		return 0;
+	}
 	public int getMultiPlanListByUserId(Integer userId){
 		multiPlans.clear();
 		multiPlanMembers = multiPlanMemberDAO.findByUserId(userId);

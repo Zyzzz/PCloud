@@ -9,7 +9,13 @@ import java.util.List;
 public class MultiPlanList extends BaseModel {
 	private List<MultiPlan> multiPlans = new ArrayList<>();
 	private List<MultiPlanMember> multiPlanMembers = new ArrayList<>();
-	
+	MultiPlan multiPlan = new MultiPlan();
+	public MultiPlan getMultiPlan() {
+		return multiPlan;
+	}
+	public void setMultiPlan(MultiPlan multiPlan) {
+		this.multiPlan = multiPlan;
+	}
 	public List<MultiPlan> getMultiPlans() {
 		return multiPlans;
 	}
