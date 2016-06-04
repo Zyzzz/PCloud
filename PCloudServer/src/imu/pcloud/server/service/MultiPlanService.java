@@ -56,7 +56,12 @@ public class MultiPlanService {
 	}
 	 
 	public int joinMultiPlan(Integer userId,Integer multiPlanId){
-		multiPlanMembers = multiPlanMemberDAO.findByUserId(userId);
+		multiPlan = multiPlanDAO.findById(multiPlanId);
+
+		multiPlanMembers = multiPlanMemberDAO.findByUserId(userId);	
+		if(multiPlan.getMaxmumber()==multiPlanMembers.size()){
+			return 604;
+		}
 		for(MultiPlanMember var:multiPlanMembers){
 			if(var.getMultiPlanId() == multiPlanId){
 				return 601;
@@ -105,7 +110,19 @@ public class MultiPlanService {
 		multiPlanMemberDAO.delete(multiPlanMember);
 		return 0;
 	}
-	
+	public int modfiyMultiPlan(Integer multiPlanId,String name,String content,
+			Integer maxmumber){
+		multiPlan = multiPlanDAO.findById(multiPlanId);
+		getMultiPlanMembers(multiPlanId);
+		if(maxmumber<multiPlanMembers.size()){
+			return 603;
+		}
+		multiPlan.setContent(content);
+		multiPlan.setMaxmumber(maxmumber);
+		multiPlan.setName(name);
+		multiPlanDAO.save(multiPlan);
+		return 0;
+	}
 	public int deleteMultiPlanList(Integer multiPlanId){
 		multiPlanMembers = multiPlanMemberDAO.findByMultiPlanId(multiPlanId);
 		for(MultiPlanMember var:multiPlanMembers){
