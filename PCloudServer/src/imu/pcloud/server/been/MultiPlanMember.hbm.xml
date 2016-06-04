@@ -13,8 +13,8 @@
         <property name="multiPlanId" type="java.lang.Integer">
             <column name="multiPlanID" not-null="true" />
         </property>
-        <property name="userId" type="java.lang.Integer">
+        <many-to-one name="user" class="imu.pcloud.server.been.User" fetch="select">
             <column name="userID" not-null="true" />
-        </property>
+        </many-to-one>
     </class>
 </hibernate-mapping>

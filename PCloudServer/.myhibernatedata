@@ -1,13 +1,13 @@
 #MyEclipse Hibernate Properties
-#Sat Jun 04 18:01:59 CST 2016
+#Sat Jun 04 18:31:45 CST 2016
 genBasicCompId=true
 sessionFactoryName=imu.pcloud.server.HibernateSessionFactory
 profile=
 daoSFId=
 jndiPath=
-detectM2M=false
+detectM2M=true
 reStrategyClass=
-detectO2O=false
+detectO2O=true
 springDaoFile=
 useJavaTypes=true
 keyGenerator=

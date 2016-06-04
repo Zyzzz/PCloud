@@ -52,5 +52,11 @@
         <property name="cookies" type="java.lang.String">
             <column name="cookies" />
         </property>
+        <set name="comments" inverse="true">
+            <key>
+                <column name="userID" not-null="true" />
+            </key>
+            <one-to-many class="imu.pcloud.server.been.Comment" />
+        </set>
     </class>
 </hibernate-mapping>

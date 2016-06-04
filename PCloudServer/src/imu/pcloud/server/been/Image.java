@@ -58,9 +58,5 @@ public class Image implements java.io.Serializable {
 	public void setUsers(Set users) {
 		this.users = users;
 	}
-	
-	public void getImageMap() {
-		
-	}
 
 }

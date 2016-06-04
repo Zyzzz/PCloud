@@ -1,6 +1,8 @@
 package imu.pcloud.server.been;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * User entity. @author MyEclipse Persistence Tools
@@ -23,6 +25,7 @@ public class User implements java.io.Serializable {
 	private Integer verifyFlag;
 	private String secretKey;
 	private String cookies;
+	private Set comments = new HashSet(0);
 
 	// Constructors
 
@@ -41,7 +44,7 @@ public class User implements java.io.Serializable {
 	public User(Image image, String username, String password, String email,
 			String sex, Date birthday, String education, String working,
 			String signature, Integer verifyFlag, String secretKey,
-			String cookies) {
+			String cookies, Set comments) {
 		this.image = image;
 		this.username = username;
 		this.password = password;
@@ -54,6 +57,7 @@ public class User implements java.io.Serializable {
 		this.verifyFlag = verifyFlag;
 		this.secretKey = secretKey;
 		this.cookies = cookies;
+		this.comments = comments;
 	}
 
 	// Property accessors
@@ -160,6 +164,14 @@ public class User implements java.io.Serializable {
 
 	public void setCookies(String cookies) {
 		this.cookies = cookies;
+	}
+
+	public Set getComments() {
+		return this.comments;
+	}
+
+	public void setComments(Set comments) {
+		this.comments = comments;
 	}
 
 }

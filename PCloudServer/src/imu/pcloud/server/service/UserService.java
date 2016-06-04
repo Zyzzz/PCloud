@@ -128,4 +128,18 @@ public class UserService {
 		userDAO.save(user);
 		return 0;
 	}
+	
+	public ArrayList<User> getUserByIds(ArrayList<Integer> userIds) {
+		this.userList = new ArrayList<User>();
+		ArrayList<User> userList = (ArrayList<User>) userDAO.findAll();
+		for(User u:userList) {
+			for(Integer i:userIds){
+				if(i == u.getId()) {
+					this.userList.add(u);
+					break;
+				}
+			}
+		}
+		return (ArrayList<User>) this.userList;
+	}
 }
