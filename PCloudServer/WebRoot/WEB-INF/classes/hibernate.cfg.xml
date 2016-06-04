@@ -49,6 +49,7 @@
 
 
 		<property name="connection.characterEncoding">utf8</property>
+		<!-- maps -->
 		<mapping
 			resource="imu/pcloud/server/been/SharingRecord.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/PlanCircle.hbm.xml" />
@@ -57,8 +58,7 @@
 		<mapping resource="imu/pcloud/server/been/Comment.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/Image.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/User.hbm.xml" />
-		<mapping
-			resource="imu/pcloud/server/been/MultiPlanMember.hbm.xml" />
+		<mapping resource="imu/pcloud/server/been/MultiPlanMember.hbm.xml" />
 
 	</session-factory>
 
