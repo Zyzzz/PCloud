@@ -46,7 +46,9 @@ public class MultiPlanService {
 		multiPlan.setMaxmumber(maxmumber);
 		multiPlan.setCondition(condition);
 		multiPlanDAO.save(multiPlan);
-		multiPlanMember.setMultiPlanId(multiPlan.getId());
+		multiPlans = multiPlanDAO.findByExample(multiPlan);
+		System.out.print("multiPlan.getId():"+multiPlan.getId());
+		multiPlanMember.setMultiPlanId(multiPlans.get(0).getId());
 		multiPlanMember.setUserId(userId);
 		multiPlanMemberDAO.save(multiPlanMember);
 		return 0;
