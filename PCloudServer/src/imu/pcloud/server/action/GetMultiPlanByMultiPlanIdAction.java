@@ -5,7 +5,7 @@ import imu.pcloud.server.service.MultiPlanService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GetMultiPlanByMultiPlanId extends ActionSupport {
+public class GetMultiPlanByMultiPlanIdAction extends ActionSupport {
 
 	Integer multiPlanId;
 	MultiPlanList result = new MultiPlanList();
@@ -36,7 +36,4 @@ public class GetMultiPlanByMultiPlanId extends ActionSupport {
 		}
 		return SUCCESS;
 	}
-	
-	
-	
 }
