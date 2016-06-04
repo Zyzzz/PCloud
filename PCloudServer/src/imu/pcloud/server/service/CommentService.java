@@ -6,7 +6,7 @@ import java.util.List;
 
 import imu.pcloud.server.DAO.CommentDAO;
 import imu.pcloud.server.been.Comment;
-import imu.pcloud.server.been.CommentId;
+import imu.pcloud.server.been.User;
 
 public class CommentService {
 	private CommentDAO commentDao = new CommentDAO();
@@ -30,10 +30,10 @@ public class CommentService {
 	}
 
 	public int addComment(Integer userId,Integer personalPlanId, String content) {
-		CommentId commentId = new CommentId();
-		commentId.setPersonalPlanId(personalPlanId);
-		commentId.setUserId(userId);
-		comment.setId(commentId);
+		comment.setPersonalPlanId(personalPlanId);
+		User user = new User();
+		user.setId(userId);
+		comment.setUser(user);
 		comment.setContent(content);
 		commentDao.save(comment);
 		return 0;
@@ -45,6 +45,10 @@ public class CommentService {
 		if(!comments.isEmpty())
 			return 0;
 		else {
+			for(Comment var:comments) {
+				var.getUser().setCookies("");
+				var.getUser().setPassword("");
+			}
 			return 501;
 		}
 	}

@@ -3,4 +3,7 @@
 
 <hibernate-reverse-engineering>
 	<table name="User" catalog="PCloud"></table>
+	<table name="comment" catalog="pcloud">
+		<column name="personalPlanID"></column>
+	</table>
 </hibernate-reverse-engineering>

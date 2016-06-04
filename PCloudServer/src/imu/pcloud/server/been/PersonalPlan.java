@@ -1,8 +1,5 @@
 package imu.pcloud.server.been;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * PersonalPlan entity. @author MyEclipse Persistence Tools
  */
@@ -16,7 +13,6 @@ public class PersonalPlan implements java.io.Serializable {
 	private String name;
 	private Integer userId;
 	private Integer coverImageId;
-	private Set comments = new HashSet(0);
 
 	// Constructors
 
@@ -26,12 +22,11 @@ public class PersonalPlan implements java.io.Serializable {
 
 	/** full constructor */
 	public PersonalPlan(String content, String name, Integer userId,
-			Integer coverImageId, Set comments) {
+			Integer coverImageId) {
 		this.content = content;
 		this.name = name;
 		this.userId = userId;
 		this.coverImageId = coverImageId;
-		this.comments = comments;
 	}
 
 	// Property accessors
@@ -74,14 +69,6 @@ public class PersonalPlan implements java.io.Serializable {
 
 	public void setCoverImageId(Integer coverImageId) {
 		this.coverImageId = coverImageId;
-	}
-
-	public Set getComments() {
-		return this.comments;
-	}
-
-	public void setComments(Set comments) {
-		this.comments = comments;
 	}
 
 }

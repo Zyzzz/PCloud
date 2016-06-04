@@ -10,9 +10,9 @@ public class Comment implements java.io.Serializable {
 
 	// Fields
 
-	private CommentId id;
-	private PersonalPlan personalPlan;
+	private Integer id;
 	private User user;
+	private Integer personalPlanId;
 	private String content;
 	private Timestamp commentingTime;
 
@@ -23,40 +23,29 @@ public class Comment implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Comment(CommentId id, PersonalPlan personalPlan, User user,
-			String content) {
-		this.id = id;
-		this.personalPlan = personalPlan;
+	public Comment(User user, Integer personalPlanId, String content) {
 		this.user = user;
+		this.personalPlanId = personalPlanId;
 		this.content = content;
 	}
 
 	/** full constructor */
-	public Comment(CommentId id, PersonalPlan personalPlan, User user,
-			String content, Timestamp commentingTime) {
-		this.id = id;
-		this.personalPlan = personalPlan;
+	public Comment(User user, Integer personalPlanId, String content,
+			Timestamp commentingTime) {
 		this.user = user;
+		this.personalPlanId = personalPlanId;
 		this.content = content;
 		this.commentingTime = commentingTime;
 	}
 
 	// Property accessors
 
-	public CommentId getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(CommentId id) {
+	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public PersonalPlan getPersonalPlan() {
-		return this.personalPlan;
-	}
-
-	public void setPersonalPlan(PersonalPlan personalPlan) {
-		this.personalPlan = personalPlan;
 	}
 
 	public User getUser() {
@@ -65,6 +54,14 @@ public class Comment implements java.io.Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Integer getPersonalPlanId() {
+		return this.personalPlanId;
+	}
+
+	public void setPersonalPlanId(Integer personalPlanId) {
+		this.personalPlanId = personalPlanId;
 	}
 
 	public String getContent() {

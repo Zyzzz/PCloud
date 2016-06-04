@@ -6,22 +6,24 @@
 <hibernate-configuration>
 
 	<session-factory>
-	 <!--C3P0配置 -->
- 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
-        <property name="hibernate.c3p0.max_size">20</property>
-        <property name="hibernate.c3p0.min_size">5</property>
-        <property name="hibernate.c3p0.timeout">120</property>
-        <property name="automaticTestTable">Test</property>
-        <property name="hibernate.c3p0.max_statements">0</property>
-        <property name="hibernate.c3p0.idle_test_period">120</property>
-        <property name="hibernate.c3p0.acquire_increment">1</property>
-        <property name="c3p0.testConnectionOnCheckout">true</property>
-        <property name="c3p0.idleConnectionTestPeriod">0</property>
-        <property name="c3p0.maxIdleTime">0</property>
-        <property name="maxStatementsPerConnection">0</property> 
-        <!-- 每次都验证连接是否可用 -->  
-		<property name="hibernate.c3p0.validate">true</property>  
-	<!--  -->
+		<!--C3P0配置 -->
+		<property name="hibernate.connection.provider_class">
+			org.hibernate.connection.C3P0ConnectionProvider
+		</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.timeout">120</property>
+		<property name="automaticTestTable">Test</property>
+		<property name="hibernate.c3p0.max_statements">0</property>
+		<property name="hibernate.c3p0.idle_test_period">120</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="c3p0.testConnectionOnCheckout">true</property>
+		<property name="c3p0.idleConnectionTestPeriod">0</property>
+		<property name="c3p0.maxIdleTime">0</property>
+		<property name="maxStatementsPerConnection">0</property>
+		<!-- 每次都验证连接是否可用 -->
+		<property name="hibernate.c3p0.validate">true</property>
+		<!--  -->
 		<property name="myeclipse.connection.profile">pcloud</property>
 		<property name="connection.url">
 			jdbc:mysql://127.0.0.1:3306/PCloud
@@ -31,23 +33,32 @@
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
-		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
 		<property name="javax.persistence.validation.mode">
 			none
 		</property>
 		<!-- 设置不适用缓存 -->
-		<property name="hibernate.cache.use_second_level_cache">false</property>
-		<property name="hibernate.cache.use_query_cache">false</property>
-		
-		
+		<property name="hibernate.cache.use_second_level_cache">
+			false
+		</property>
+		<property name="hibernate.cache.use_query_cache">
+			false
+		</property>
+
+
 		<property name="connection.characterEncoding">utf8</property>
-		<mapping resource="imu/pcloud/server/been/SharingRecord.hbm.xml" />
+		<mapping
+			resource="imu/pcloud/server/been/SharingRecord.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/PlanCircle.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/PersonalPlan.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/MultiPlan.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/Comment.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/Image.hbm.xml" />
 		<mapping resource="imu/pcloud/server/been/User.hbm.xml" />
+		<mapping
+			resource="imu/pcloud/server/been/MultiPlanMember.hbm.xml" />
 
 	</session-factory>
 
