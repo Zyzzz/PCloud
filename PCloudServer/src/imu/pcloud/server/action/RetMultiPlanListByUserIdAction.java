@@ -6,7 +6,7 @@ import imu.pcloud.server.service.UserService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class getMultiPlanListByUserIdAction extends ActionSupport {
+public class RetMultiPlanListByUserIdAction extends ActionSupport {
 	String cookies;
 	MultiPlanList result = new MultiPlanList();
 	MultiPlanService multiPlanService = new MultiPlanService();
