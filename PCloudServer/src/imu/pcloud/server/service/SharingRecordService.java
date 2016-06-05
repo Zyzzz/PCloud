@@ -43,6 +43,8 @@ public class SharingRecordService {
 		if(!users.isEmpty()){
 			sharingRecordId.setPersonalPlanId(personalPlanId);
 			sharingRecordId.setPlanCircleId(planCircleId);
+			if(sharingRecordDAO.findById(sharingRecordId) != null)
+				return 305;
 			sharingRecord.setUserId(users.get(0).getId());
 			sharingRecord.setId(sharingRecordId);
 			sharingRecord.setLoadingTime(0);

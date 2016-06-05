@@ -58,6 +58,8 @@ public class MultiPlanMemberDAO extends BaseHibernateDAO {
 	}
 
 	public MultiPlanMember findById(java.lang.Integer id) {
+    	getSession().flush();
+    	getSession().clear();
     	HibernateSessionFactory.closeSession();
 		log.debug("getting MultiPlanMember instance with id: " + id);
 		try {
@@ -71,6 +73,8 @@ public class MultiPlanMemberDAO extends BaseHibernateDAO {
 	}
 
 	public List findByExample(MultiPlanMember instance) {
+    	getSession().flush();
+    	getSession().clear();
     	HibernateSessionFactory.closeSession();
 		log.debug("finding MultiPlanMember instance by example");
 		try {

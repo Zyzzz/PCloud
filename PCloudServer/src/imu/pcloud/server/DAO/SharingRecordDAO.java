@@ -59,7 +59,7 @@ public class SharingRecordDAO extends BaseHibernateDAO  {
     }
     
     public SharingRecord findById( imu.pcloud.server.been.SharingRecordId id) {
-    	//getSession().flush();
+    	getSession().flush();
     	getSession().clear();
     	HibernateSessionFactory.closeSession();
         log.debug("getting SharingRecord instance with id: " + id);
@@ -75,7 +75,7 @@ public class SharingRecordDAO extends BaseHibernateDAO  {
     
     
     public List findByExample(SharingRecord instance) {
-    	//getSession().flush();
+    	getSession().flush();
     	getSession().clear();
     	HibernateSessionFactory.closeSession();
         log.debug("finding SharingRecord instance by example");
@@ -114,8 +114,18 @@ public class SharingRecordDAO extends BaseHibernateDAO  {
 	}
 	
 	public List findByPlanCircleId(Integer planCircleId) {
+    	getSession().flush();
     	getSession().clear();
+    	HibernateSessionFactory.closeSession();
 		String hqlString = "from SharingRecord where planCircleID = " + planCircleId;
+		return getSession().createQuery(hqlString).list();
+	}
+	
+	public List findByPland(Integer planId) {
+    	getSession().flush();
+    	getSession().clear();
+    	HibernateSessionFactory.closeSession();
+		String hqlString = "from SharingRecord where personalPlanId = " + planId;
 		return getSession().createQuery(hqlString).list();
 	}
 	

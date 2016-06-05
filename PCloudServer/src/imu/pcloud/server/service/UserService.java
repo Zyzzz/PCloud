@@ -35,6 +35,8 @@ public class UserService {
 	}
 
 	public int login(String email, String password) {
+		if(password == null || password.length() < 1)
+			return 100;
 		user = new User();
 		user.setEmail(email);
 		user.setPassword(password);

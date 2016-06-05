@@ -58,6 +58,8 @@ public class CommentDAO extends BaseHibernateDAO {
 	}
 
 	public Comment findById(java.lang.Integer id) {
+    	getSession().flush();
+    	getSession().clear();
     	HibernateSessionFactory.closeSession();
 		log.debug("getting Comment instance with id: " + id);
 		try {
@@ -71,6 +73,8 @@ public class CommentDAO extends BaseHibernateDAO {
 	}
 
 	public List findByExample(Comment instance) {
+    	getSession().flush();
+    	getSession().clear();
     	HibernateSessionFactory.closeSession();
 		log.debug("finding Comment instance by example");
 		try {
@@ -110,7 +114,9 @@ public class CommentDAO extends BaseHibernateDAO {
 	}
 	
 	public List findByPersonalPlanId(Integer personalPlanId){
-		getSession().clear();
+    	getSession().flush();
+    	getSession().clear();
+    	HibernateSessionFactory.closeSession();
 		String hqlString = "from Comment where personalPlanId = " + personalPlanId + "order by commentingTime";
 		return getSession().createQuery(hqlString).list();
 	}

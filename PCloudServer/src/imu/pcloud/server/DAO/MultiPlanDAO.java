@@ -62,7 +62,8 @@ public class MultiPlanDAO extends BaseHibernateDAO {
 	}
 
 	public MultiPlan findById(java.lang.Integer id) {
-		getSession().clear();
+    	getSession().flush();
+    	getSession().clear();
     	HibernateSessionFactory.closeSession();
 		log.debug("getting MultiPlan instance with id: " + id);
 		try {
@@ -76,7 +77,8 @@ public class MultiPlanDAO extends BaseHibernateDAO {
 	}
 	
     public List findBybBlurryName(String blurryName) {
-		getSession().clear();
+    	getSession().flush();
+    	getSession().clear();
     	HibernateSessionFactory.closeSession();
     	try {
     		String str = "'%" + blurryName + "%'";

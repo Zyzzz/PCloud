@@ -63,7 +63,7 @@ public class PersonalPlanDAO extends BaseHibernateDAO {
 	}
 
 	public PersonalPlan findById(java.lang.Integer id) {
-    	//getSession().flush();
+    	getSession().flush();
     	getSession().clear();
     	HibernateSessionFactory.closeSession();
 		log.debug("getting PersonalPlan instance with id: " + id);
@@ -78,7 +78,7 @@ public class PersonalPlanDAO extends BaseHibernateDAO {
 	}
 
 	public List findByExample(PersonalPlan instance) {
-    	//getSession().flush();
+    	getSession().flush();
     	getSession().clear();
     	HibernateSessionFactory.closeSession();
 		log.debug("finding PersonalPlan instance by example");

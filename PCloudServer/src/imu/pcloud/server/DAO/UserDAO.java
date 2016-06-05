@@ -68,7 +68,7 @@ public class UserDAO extends BaseHibernateDAO  {
     }
     
     public User findById( java.lang.Integer id) {
-    	//getSession().flush();
+    	getSession().flush();
     	getSession().clear();
     	HibernateSessionFactory.closeSession();
         log.debug("getting User instance with id: " + id);
@@ -84,7 +84,7 @@ public class UserDAO extends BaseHibernateDAO  {
     
     
     public List findByExample(User instance) {
-    	//getSession().flush();
+    	getSession().flush();
     	getSession().clear();
     	HibernateSessionFactory.closeSession();
         log.debug("finding User instance by example");

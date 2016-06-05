@@ -10,7 +10,7 @@
 		<property name="hibernate.connection.provider_class">
 			org.hibernate.connection.C3P0ConnectionProvider
 		</property>
-		<property name="hibernate.c3p0.max_size">300</property>
+		<property name="hibernate.c3p0.max_size">5000</property>
 		<property name="hibernate.c3p0.min_size">2</property>
 		<property name="hibernate.c3p0.timeout">120</property>
 		<property name="automaticTestTable">Test</property>
