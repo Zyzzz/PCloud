@@ -1,5 +1,6 @@
 package imu.pcloud.server.DAO;
 
+import imu.pcloud.server.HibernateSessionFactory;
 import imu.pcloud.server.been.Image;
 
 import java.util.List;
@@ -59,7 +60,8 @@ public class ImageDAO extends BaseHibernateDAO {
 
 	public Image findById(java.lang.Integer id) {
     	//getSession().flush();
-    	//getSession().clear();
+    	getSession().clear();
+    	HibernateSessionFactory.closeSession();
 		log.debug("getting Image instance with id: " + id);
 		try {
 			Image instance = (Image) getSession().get(
@@ -73,7 +75,8 @@ public class ImageDAO extends BaseHibernateDAO {
 
 	public List findByExample(Image instance) {
     	//getSession().flush();
-    	//getSession().clear();
+    	getSession().clear();
+    	HibernateSessionFactory.closeSession();
 		log.debug("finding Image instance by example");
 		try {
 			List results = getSession()

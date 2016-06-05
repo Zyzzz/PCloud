@@ -1,5 +1,6 @@
 package imu.pcloud.server.DAO;
 
+import imu.pcloud.server.HibernateSessionFactory;
 import imu.pcloud.server.been.MultiPlanMember;
 
 import java.util.List;
@@ -57,6 +58,7 @@ public class MultiPlanMemberDAO extends BaseHibernateDAO {
 	}
 
 	public MultiPlanMember findById(java.lang.Integer id) {
+    	HibernateSessionFactory.closeSession();
 		log.debug("getting MultiPlanMember instance with id: " + id);
 		try {
 			MultiPlanMember instance = (MultiPlanMember) getSession().get(
@@ -69,6 +71,7 @@ public class MultiPlanMemberDAO extends BaseHibernateDAO {
 	}
 
 	public List findByExample(MultiPlanMember instance) {
+    	HibernateSessionFactory.closeSession();
 		log.debug("finding MultiPlanMember instance by example");
 		try {
 			List results = getSession()

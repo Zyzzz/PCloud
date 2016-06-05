@@ -1,5 +1,6 @@
 package imu.pcloud.server.DAO;
 
+import imu.pcloud.server.HibernateSessionFactory;
 import imu.pcloud.server.been.User;
 
 import java.util.Date;
@@ -68,7 +69,8 @@ public class UserDAO extends BaseHibernateDAO  {
     
     public User findById( java.lang.Integer id) {
     	//getSession().flush();
-    	//getSession().clear();
+    	getSession().clear();
+    	HibernateSessionFactory.closeSession();
         log.debug("getting User instance with id: " + id);
         try {
             User instance = (User) getSession()
@@ -83,7 +85,8 @@ public class UserDAO extends BaseHibernateDAO  {
     
     public List findByExample(User instance) {
     	//getSession().flush();
-    	//getSession().clear();
+    	getSession().clear();
+    	HibernateSessionFactory.closeSession();
         log.debug("finding User instance by example");
         try {
             List results = getSession()

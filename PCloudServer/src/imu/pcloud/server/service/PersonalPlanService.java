@@ -75,7 +75,6 @@ public class PersonalPlanService {
 	}
 	
 	public List getPlanList(Integer userId){
-		
 		personalPlanList = personalPlanDao.findByUserId(userId);
 		return personalPlanList;
 	}

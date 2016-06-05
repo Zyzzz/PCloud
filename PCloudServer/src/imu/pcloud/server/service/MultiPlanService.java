@@ -118,8 +118,8 @@ public class MultiPlanService {
 	public int modfiyMultiPlan(Integer multiPlanId,String name,String content,
 			Integer maxmumber){
 		multiPlan = multiPlanDAO.findById(multiPlanId);
-		getMultiPlanMembers(multiPlanId);
-		if(maxmumber<multiPlanMembers.size()){
+		int num = getMultiPlanMemberNums(multiPlanId);
+		if(maxmumber < num){
 			return 603;
 		}
 		multiPlan.setContent(content);
@@ -127,6 +127,10 @@ public class MultiPlanService {
 		multiPlan.setName(name);
 		multiPlanDAO.save(multiPlan);
 		return 0;
+	}
+	public int getMultiPlanMemberNums(int id) {
+		multiPlanMembers = multiPlanMemberDAO.findByMultiPlanId(id);
+		return multiPlanMembers.size();
 	}
 	public int deleteMultiPlanList(Integer multiPlanId){
 		multiPlanMembers = multiPlanMemberDAO.findByMultiPlanId(multiPlanId);

@@ -1,5 +1,6 @@
 package imu.pcloud.server.DAO;
 
+import imu.pcloud.server.HibernateSessionFactory;
 import imu.pcloud.server.been.PlanCircle;
 
 import java.util.List;
@@ -59,7 +60,8 @@ public class PlanCircleDAO extends BaseHibernateDAO  {
     
     public PlanCircle findById( java.lang.Integer id) {
     	//getSession().flush();
-    	//getSession().clear();
+    	getSession().clear();
+    	HibernateSessionFactory.closeSession();
         log.debug("getting PlanCircle instance with id: " + id);
         try {
             PlanCircle instance = (PlanCircle) getSession()
@@ -74,7 +76,8 @@ public class PlanCircleDAO extends BaseHibernateDAO  {
     
     public List findByExample(PlanCircle instance) {
     	//getSession().flush();
-    	//getSession().clear();
+    	getSession().clear();
+    	HibernateSessionFactory.closeSession();
         log.debug("finding PlanCircle instance by example");
         try {
             List results = getSession()

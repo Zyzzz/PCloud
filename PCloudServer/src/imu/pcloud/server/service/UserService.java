@@ -136,6 +136,7 @@ public class UserService {
 		for(User u:userList) {
 			u.setPassword("");
 			u.setCookies("");
+			u.setComments(null);
 			for(Integer i:userIds){
 				if(i == u.getId()) {
 					this.userList.add(u);
@@ -149,6 +150,9 @@ public class UserService {
 	public void setMultiPlanMembers(ArrayList<MultiPlanMember> multiPlanMembers) {
 		for(int i = 0; i < multiPlanMembers.size(); i++) {
 			User user = userDAO.findById(multiPlanMembers.get(i).getUserId());
+			user.setPassword("");
+			user.setCookies("");
+			user.setComments(null);
 			multiPlanMembers.get(i).setUser(user);
 		}
 	}

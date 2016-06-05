@@ -1,5 +1,6 @@
 package imu.pcloud.server.DAO;
 
+import imu.pcloud.server.HibernateSessionFactory;
 import imu.pcloud.server.been.Comment;
 
 import java.sql.Timestamp;
@@ -57,6 +58,7 @@ public class CommentDAO extends BaseHibernateDAO {
 	}
 
 	public Comment findById(java.lang.Integer id) {
+    	HibernateSessionFactory.closeSession();
 		log.debug("getting Comment instance with id: " + id);
 		try {
 			Comment instance = (Comment) getSession().get(
@@ -69,6 +71,7 @@ public class CommentDAO extends BaseHibernateDAO {
 	}
 
 	public List findByExample(Comment instance) {
+    	HibernateSessionFactory.closeSession();
 		log.debug("finding Comment instance by example");
 		try {
 			List results = getSession()
@@ -107,7 +110,7 @@ public class CommentDAO extends BaseHibernateDAO {
 	}
 	
 	public List findByPersonalPlanId(Integer personalPlanId){
-		//getSession().clear();
+		getSession().clear();
 		String hqlString = "from Comment where personalPlanId = " + personalPlanId + "order by commentingTime";
 		return getSession().createQuery(hqlString).list();
 	}

@@ -30,11 +30,7 @@ public class GetMultiPlanMembersAction extends ActionSupport {
 			result.setMultiPlanMembers(multiPlanService.getMultiPlanMembers());
 			result.setStatus(0);
 		}
-		
 		return SUCCESS;
 	}
-	
-	
-	
 	
 }

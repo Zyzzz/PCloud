@@ -1,5 +1,6 @@
 package imu.pcloud.server.DAO;
 
+import imu.pcloud.server.HibernateSessionFactory;
 import imu.pcloud.server.been.MultiPlan;
 
 import java.util.List;
@@ -61,6 +62,8 @@ public class MultiPlanDAO extends BaseHibernateDAO {
 	}
 
 	public MultiPlan findById(java.lang.Integer id) {
+		getSession().clear();
+    	HibernateSessionFactory.closeSession();
 		log.debug("getting MultiPlan instance with id: " + id);
 		try {
 			MultiPlan instance = (MultiPlan) getSession().get(
@@ -73,6 +76,8 @@ public class MultiPlanDAO extends BaseHibernateDAO {
 	}
 	
     public List findBybBlurryName(String blurryName) {
+		getSession().clear();
+    	HibernateSessionFactory.closeSession();
     	try {
     		String str = "'%" + blurryName + "%'";
 	    	String hqlString = "from MultiPlan where name like " + str;
@@ -85,6 +90,8 @@ public class MultiPlanDAO extends BaseHibernateDAO {
     }
 
 	public List findByExample(MultiPlan instance) {
+		getSession().clear();
+    	HibernateSessionFactory.closeSession();
 		log.debug("finding MultiPlan instance by example");
 		try {
 			List results = getSession()

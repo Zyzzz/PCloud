@@ -14,6 +14,46 @@ public class ModfiyMultiPlanAction extends ActionSupport{
 	BaseModel result = new BaseModel();
 	MultiPlanService multiPlanService = new MultiPlanService();
 	
+	public Integer getMultiPlanId() {
+		return multiPlanId;
+	}
+
+	public void setMultiPlanId(Integer multiPlanId) {
+		this.multiPlanId = multiPlanId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Integer getMaxmumber() {
+		return maxmumber;
+	}
+
+	public void setMaxmumber(Integer maxmumber) {
+		this.maxmumber = maxmumber;
+	}
+
+	public BaseModel getResult() {
+		return result;
+	}
+
+	public void setResult(BaseModel result) {
+		this.result = result;
+	}
+
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
@@ -21,6 +61,4 @@ public class ModfiyMultiPlanAction extends ActionSupport{
 		result.setStatus(status);
 		return SUCCESS;
 	}
-	
-	
 }
