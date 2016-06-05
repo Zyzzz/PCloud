@@ -10,7 +10,7 @@
 		<property name="hibernate.connection.provider_class">
 			org.hibernate.connection.C3P0ConnectionProvider
 		</property>
-		<property name="hibernate.c3p0.max_size">3000</property>
+		<property name="hibernate.c3p0.max_size">300</property>
 		<property name="hibernate.c3p0.min_size">2</property>
 		<property name="hibernate.c3p0.timeout">120</property>
 		<property name="automaticTestTable">Test</property>
@@ -25,9 +25,7 @@
 		<property name="hibernate.c3p0.validate">true</property>
 		<!--  -->
 		<property name="myeclipse.connection.profile">pcloud</property>
-		<property name="connection.url">
-			jdbc:mysql://127.0.0.1:3306/PCloud
-		</property>
+		<property name="connection.url">jdbc:mysql://115.28.53.244:3306/pcloud</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">123456</property>
 		<property name="connection.driver_class">
