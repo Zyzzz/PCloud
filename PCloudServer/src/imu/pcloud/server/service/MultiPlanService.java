@@ -109,6 +109,33 @@ public class MultiPlanService {
 		return 0;
 	}
 	
+	public int getOutMultiplan(Integer userId, Integer multiPlanId) {
+		MultiPlanMember m = new MultiPlanMember();
+		m.setUserId(userId);
+		m.setMultiPlanId(multiPlanId);
+		try {
+			m = (MultiPlanMember) multiPlanMemberDAO.findByExample(m).get(0);
+			multiPlanMemberDAO.delete(m);
+		} catch(Exception e) {
+			return 606;
+		}
+		return 0;
+	}
+	
+	public int removeMultiPlan(Integer userId, Integer multiPlanId) {
+		MultiPlan m = multiPlanDAO.findById(multiPlanId);
+		if(m == null) {
+			return 602;
+		}
+		if(m.getUserId() != userId){
+			return 605;
+		}
+		else {
+			multiPlanDAO.delete(m);
+			return 0;
+		}
+	}
+	
 	public int quitMultiPlanList(Integer userId,Integer multiPlanId){
 		multiPlanMember.setMultiPlanId(multiPlanId);
 		multiPlanMember.setUserId(userId);

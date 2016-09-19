@@ -56,6 +56,32 @@ public class SharingRecordService {
 		}
 	}
 	
+	public int Sharing(
+			Integer personalPlanId,
+			Integer planCircleId, 
+			String describe, 
+			String cookies) {
+		User user = new User();
+		user.setCookies(cookies);
+		List<User> users = userDAO.findByExample(user);
+		if(!sharingRecordDAO.findByPersonalPlanId(personalPlanId).isEmpty()) {
+			return 305;
+		}
+		if(!users.isEmpty()){
+			sharingRecordId.setPersonalPlanId(personalPlanId);
+			sharingRecordId.setPlanCircleId(planCircleId);
+			sharingRecord.setUserId(users.get(0).getId());
+			sharingRecord.setId(sharingRecordId);
+			sharingRecord.setLoadingTime(0);
+			sharingRecord.setDiscribe(describe);
+			sharingRecordDAO.save(sharingRecord);
+			return 0;
+		}
+		else {
+			return 300;
+		}
+	}
+	
 	public int getSharingList(Integer planCircleId){
 		sharingRecords = sharingRecordDAO.findByPlanCircleId(planCircleId);
 		return 0;

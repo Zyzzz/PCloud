@@ -13,7 +13,6 @@ public class User implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private Image image;
 	private String username;
 	private String password;
 	private String email;
@@ -22,6 +21,7 @@ public class User implements java.io.Serializable {
 	private String education;
 	private String working;
 	private String signature;
+	private Integer headImageId;
 	private Integer verifyFlag;
 	private String secretKey;
 	private String cookies;
@@ -41,11 +41,10 @@ public class User implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public User(Image image, String username, String password, String email,
-			String sex, Date birthday, String education, String working,
-			String signature, Integer verifyFlag, String secretKey,
+	public User(String username, String password, String email, String sex,
+			Date birthday, String education, String working, String signature,
+			Integer headImageId, Integer verifyFlag, String secretKey,
 			String cookies, Set comments) {
-		this.image = image;
 		this.username = username;
 		this.password = password;
 		this.email = email;
@@ -54,10 +53,20 @@ public class User implements java.io.Serializable {
 		this.education = education;
 		this.working = working;
 		this.signature = signature;
+		this.headImageId = headImageId;
 		this.verifyFlag = verifyFlag;
 		this.secretKey = secretKey;
 		this.cookies = cookies;
 		this.comments = comments;
+	}
+	
+	public void cleanPrivateInfo() {
+		password = "";
+		email = "";
+		verifyFlag = 0;
+		secretKey = "";
+		cookies = "";
+		comments = null;
 	}
 
 	// Property accessors
@@ -68,14 +77,6 @@ public class User implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Image getImage() {
-		return this.image;
-	}
-
-	public void setImage(Image image) {
-		this.image = image;
 	}
 
 	public String getUsername() {
@@ -140,6 +141,14 @@ public class User implements java.io.Serializable {
 
 	public void setSignature(String signature) {
 		this.signature = signature;
+	}
+
+	public Integer getHeadImageId() {
+		return this.headImageId;
+	}
+
+	public void setHeadImageId(Integer headImageId) {
+		this.headImageId = headImageId;
 	}
 
 	public Integer getVerifyFlag() {

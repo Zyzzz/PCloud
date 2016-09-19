@@ -8,16 +8,10 @@
     <class name="imu.pcloud.server.been.Image" table="image" catalog="pcloud">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="imageFile" type="java.lang.String">
-            <column name="imageFile" />
+            <column name="imageFile" length="16777215" />
         </property>
-        <set name="users" inverse="true">
-            <key>
-                <column name="headImageID" />
-            </key>
-            <one-to-many class="imu.pcloud.server.been.User" />
-        </set>
     </class>
 </hibernate-mapping>

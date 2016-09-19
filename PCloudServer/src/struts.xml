@@ -256,5 +256,59 @@
 				<param name="ignoreHierarchy" >false</param> 
 			</result>
 		</action>
+		<action name="setUserHeader" class="imu.pcloud.server.action.SetUserHeaderAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<!-- <param name="charSet">UTF-8</param> -->
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
+		<action name="getImage" class="imu.pcloud.server.action.GetImageAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<!-- <param name="charSet">UTF-8</param> -->
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
+		<action name="discover" class="imu.pcloud.server.action.DiscoverAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<!-- <param name="charSet">UTF-8</param> -->
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
+		<action name="userDiscover" class="imu.pcloud.server.action.UserDiscoverAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<!-- <param name="charSet">UTF-8</param> -->
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
+		<action name="getoutMultiplan" class="imu.pcloud.server.action.GetOutMultiPlanAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<!-- <param name="charSet">UTF-8</param> -->
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
+		<action name="removeMultiplan" class="imu.pcloud.server.action.RemoveMultiPlanAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<!-- <param name="charSet">UTF-8</param> -->
+				<param name="ignoreHierarchy" >false</param> 
+			</result>
+		</action>
 	</package>
 </struts>    

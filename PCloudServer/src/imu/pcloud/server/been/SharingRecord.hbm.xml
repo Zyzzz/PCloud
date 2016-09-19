@@ -26,5 +26,8 @@
         <property name="userId" type="java.lang.Integer">
             <column name="userID" not-null="true" />
         </property>
+        <property name="discribe" type="java.lang.String">
+            <column name="discribe" />
+        </property>
     </class>
 </hibernate-mapping>

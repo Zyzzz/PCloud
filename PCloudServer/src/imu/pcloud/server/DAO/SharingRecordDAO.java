@@ -121,6 +121,15 @@ public class SharingRecordDAO extends BaseHibernateDAO  {
 		return getSession().createQuery(hqlString).list();
 	}
 	
+	public List findByPersonalPlanId(Integer personalPlanId) {
+    	getSession().flush();
+    	getSession().clear();
+    	HibernateSessionFactory.closeSession();
+		String hqlString = "from SharingRecord where personalPlanId = " + personalPlanId;
+		return getSession().createQuery(hqlString).list();
+		
+	}
+	
 	public List findByPland(Integer planId) {
     	getSession().flush();
     	getSession().clear();

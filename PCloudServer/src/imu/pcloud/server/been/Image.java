@@ -1,8 +1,5 @@
 package imu.pcloud.server.been;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Image entity. @author MyEclipse Persistence Tools
  */
@@ -13,7 +10,6 @@ public class Image implements java.io.Serializable {
 
 	private Integer id;
 	private String imageFile;
-	private Set users = new HashSet(0);
 
 	// Constructors
 
@@ -21,16 +17,9 @@ public class Image implements java.io.Serializable {
 	public Image() {
 	}
 
-	/** minimal constructor */
-	public Image(Integer id) {
-		this.id = id;
-	}
-
 	/** full constructor */
-	public Image(Integer id, String imageFile, Set users) {
-		this.id = id;
+	public Image(String imageFile) {
 		this.imageFile = imageFile;
-		this.users = users;
 	}
 
 	// Property accessors
@@ -49,14 +38,6 @@ public class Image implements java.io.Serializable {
 
 	public void setImageFile(String imageFile) {
 		this.imageFile = imageFile;
-	}
-
-	public Set getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(Set users) {
-		this.users = users;
 	}
 
 }
